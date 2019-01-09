@@ -1,0 +1,49 @@
+# Copyright 2019 Autodesk, Inc.  All rights reserved.
+#
+# Use of this software is subject to the terms of the Autodesk license agreement
+# provided at the time of installation or download, or which otherwise accompanies
+# this software in either electronic or hard copy form.
+#
+
+# jekyll configuration file for Shotgun Developer Site Environment
+
+# Site settings
+title: Shotgun Developer
+description: Resources for Shotgun developers.
+
+# Build settings
+markdown: kramdown
+theme: just-the-docs
+
+plugins:
+  # Resolves relative links to images.
+  # See https://github.com/benbalter/jekyll-relative-links
+  - jekyll-relative-links
+  #
+  # handles i18n.
+  # See https://github.com/untra/polyglot
+  - jekyll-polyglot
+
+
+# i18n configuration
+languages: ["en", "ko", "ja", "zh_CN"]
+lang_vars: ["English", "한국어", "日本語", "简体中文"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "css"]
+parallel_localization: true
+
+permalink: pretty
+exclude: []
+
+# Enable or disable the site search
+search_enabled: true
+
+# note: theme also supports a dark theme
+#color_scheme: "dark"
+
+# Aux links for the upper right navigation
+aux_links:
+  # "Shotgun Support":
+  #   - "//support.shotgunsoftware.com"
+
+

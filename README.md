@@ -1,2 +1,3 @@
-# tk-doc-generator
-Toolkit Documentation Generation and CI submodule
+# Toolkit Documentation Generator
+
+A git submodule 
