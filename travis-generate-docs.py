@@ -53,6 +53,7 @@ def upload_folder_to_s3(s3_bucket, s3_client, src, dst):
                     Body=file_handle
                 )
 
+
 def execute_external_command(cmd):
     """
     Executes the given command line,
@@ -95,8 +96,9 @@ def main():
     Execute CI operations
     """
     # expected file and build locations
-    root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    doc_script = os.path.join(root_path, "doc_builder", "scripts", "build_docs.sh")
+    this_folder = os.path.dirname(__file__)
+    root_path = os.path.abspath(os.path.join(this_folder, ".."))
+    doc_script = os.path.join(this_folder, "scripts", "build_docs.sh")
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
 
@@ -169,7 +171,6 @@ def main():
             output=output_path
         )
         execute_external_command(doc_command)
-
 
 
 if __name__ == "__main__":
