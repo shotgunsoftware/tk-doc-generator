@@ -52,14 +52,14 @@ If you want pull request previews, you need to define the following:
 
 - `S3_BUCKET` - the name of a publicly accessible S3 bucket, in website hosting mode, e.g. `mybucket`.
 - `S3_WEB_URL` - the website url where the bucket can be accessed, e.g. `http://mybucket.s3-website.eu-west-2.amazonaws.com`.
-- `AWS_S3_ACCESS_KEY` - AWS access key with credentials to put new items into the `S3_BUCKET`.
-- `AWS_S3_ACCESS_TOKEN` - AWS access token with credentials to put new items into the `S3_BUCKET`.
+- `AWS_S3_ACCESS_KEY` - AWS access key with permissions to put new items into the `S3_BUCKET`.
+- `AWS_S3_ACCESS_TOKEN` - AWS access token with permissions to put new items into the `S3_BUCKET`.
 - `GITHUB_TOKEN` - Github access token used to create a comment on the PR with a link to the built docs. 
 
 ### Folder locations
 
-- The documentation needs to be located in `/docs`
-- The build output will be generated in `_build` (see travis example below)
+- Your documentation needs to be located in `/docs`.
+- The build output will be generated in `/_build` (see travis example below).
 
 
 ### Example `.travis.yml` file
@@ -86,13 +86,14 @@ cache:
      - $TRAVIS_BUILD_DIR/tk-doc-generator/vendor/bundle
 
 before_install:
+  # required dependency for sphinx
   - sudo apt-get install -y pandoc
 
 install:
+  # 
   # install pyside - from https://stackoverflow.com/questions/24489588
   - sudo apt-get install libqt4-dev
   - pip install PySide --no-index --find-links https://parkin.github.io/python-wheelhouse/;
-  # Travis CI servers use virtualenvs, so we need to finish the install by the following
   - python ~/virtualenv/python${TRAVIS_PYTHON_VERSION}/bin/pyside_postinstall.py -install
   #
   # jekyll dependencies
@@ -102,11 +103,12 @@ install:
   - pip install -r ./tk-doc-generator/requirements.txt
 
 script:
+  # script that runs the CI and handles S3 previews
   - python ./tk-doc-generator/travis-generate-docs.py
 
 deploy:
-  # deploy to github-pages:
-  # copy contents of _site folder to gh-pages branch and push
+  # When commiting to master, auto-deploy to github-pages
+  # This will copy the contents of the _build folder to gh-pages branch and push
 - provider: pages
   local-dir: ./_build
   target-branch: gh-pages
