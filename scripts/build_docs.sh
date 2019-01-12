@@ -1,11 +1,18 @@
 #!/bin/bash
-
 # Copyright 2019 Autodesk, Inc.  All rights reserved.
 #
 # Use of this software is subject to the terms of the Autodesk license agreement
 # provided at the time of installation or download, or which otherwise accompanies
 # this software in either electronic or hard copy form.
 #
+
+# Main Documentation build script
+# Syntax:
+#
+# build_docs --url=TARGET_URL           # url where the docs will live, e..g https://mysite.com
+#            --url-path=TARGET_PATH     # target path on doc site, e.g. /developer_docs
+#            --source=SOURCE_FOLDER     # source location
+#            --output=OUTPUT_FOLDER     # build target. This folder will be deleted by the script.
 
 # exit on error
 set -e
@@ -36,44 +43,43 @@ esac
 done
 
 echo "---------------------------------------------------"
-echo "DOC BUILD"
-echo "Source = ${SOURCE}"
-echo "Output = ${OUTPUT}"
-echo "Url    = ${URL}${URLPATH}"
+echo "Shotgun Ecosystem Documentation Build Process"
+echo "---------------------------------------------------"
+echo "Source:     ${SOURCE}"
+echo "Output:     ${OUTPUT}"
+echo "Target Url: ${URL}${URLPATH}"
 echo "---------------------------------------------------"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 TMP_FOLDER=${THIS_DIR}/../_build
 TMP_BUILD_FOLDER=${TMP_FOLDER}/markdown_src
-WEBSITE_FOLDER=${OUTPUT}
 
-echo "cleaning out internal build location '${TMP_FOLDER}'..."
+echo ""
+ehco "Intermediate files will be written to '${TMP_FOLDER}'."
+
+echo ""
+echo "Cleaning out internal build location '${TMP_FOLDER}'..."
 rm -rf ${TMP_FOLDER}
 
-echo "cleaning out final build location '${WEBSITE_FOLDER}'..."
-rm -rf ${WEBSITE_FOLDER}
+echo "Cleaning out final build location '${OUTPUT}'..."
+rm -rf ${OUTPUT}
 
-echo "creating build location"
+echo "Creating build location '${TMP_BUILD_FOLDER}'..."
 mkdir -p ${TMP_BUILD_FOLDER}
 
-echo "copying markdown docs scaffold into build location"
+echo "Copying source files into '${TMP_FOLDER}'..."
 cp -r ${SOURCE}/* ${TMP_BUILD_FOLDER}
 
-# temp hack
-export PYTHONPATH=/tmp/smb:$PYTHONPATH
-
-echo "running sphinx builds..."
+echo "Running Sphinx RST -> Markdown build process..."
 python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 
-echo "building jekyll site"
+echo "Running Jekyll to generate html from markdown..."
 BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
 bundle exec jekyll build \
 --baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml \
 --source ${TMP_BUILD_FOLDER} --destination ${OUTPUT}
 
-
 echo "------------------------------------------------------"
 echo "Build completed."
 echo "------------------------------------------------------"
-
