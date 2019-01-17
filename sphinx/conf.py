@@ -17,7 +17,7 @@ try:
     # available at this point.
     import sgtk
     import tank
-except:
+except ImportError:
     # not every documentable environment needs sgtk
     print "WARNING: unable to import Toolkit"
     pass
@@ -31,24 +31,24 @@ try:
     sgtk.platform.qt.QtGui = QtGui
     print "Using PySide %s" % PySide.__version__
     print "Using QT %s" % QtCore.__version__
-except:
+except ImportError:
     # not every documentable environment needs Qt
     print "Could not detect PySide"
 
 # some frameworks import other frameworks and this means that they have
 # an import_framework method call that executes right at load time.
-# this method requires a running sgtk platform and will prevent 
+# this method requires a running sgtk platform and will prevent
 # sphinx to run its introspection, so we need to replace these import
 # methods with proxy
 
 
 class ModuleImportProxy(object):
     """
-    Proxy class that returns None for any attribute request. 
+    Proxy class that returns None for any attribute request.
     This so that the code that is being documented can
-    execute this type of code at import time without 
+    execute this type of code at import time without
     erroring out:
-    
+
     version_label = sgtk.platform.current_bundle().import_module("version_label")
     VersionLabel = version_label.VersionLabel
     """
@@ -60,9 +60,9 @@ class BundleProxy(object):
     """
     Proxy object representing a tank bundle object.
     This is primarily so we can implement a proxy wrapper for
-    the import_module method and use that to return a module 
+    the import_module method and use that to return a module
     proxy object above.
-    """    
+    """
     def import_module(*args, **kwargs):
         return ModuleImportProxy()
 
@@ -80,6 +80,7 @@ def make_bundle_proxy(*args, **kwargs):
     """
     return BundleProxy()
 
+
 # -- Shotgun Modifications ------------------------------------------------
 
 try:
@@ -96,14 +97,14 @@ try:
     # now patch toolkit
     tank.platform.import_framework = make_module_proxy
     sgtk.platform.import_framework = make_module_proxy
-    
+
     tank.platform.current_bundle = make_bundle_proxy
     sgtk.platform.current_bundle = make_bundle_proxy
 
     sgtk.platform.get_logger = lambda x: logging.getLogger(x)
 
     # patch hook baseclass to return Hook (it doesn't have a default value)
-    get_hook_baseclass_proxy = lambda: sgtk.Hook
+    get_hook_baseclass_proxy = lambda: sgtk.Hook  # noqa
     get_hook_baseclass_proxy.__doc__ = real_get_hook_baseclass.__doc__
 
     sgtk.get_hook_baseclass = get_hook_baseclass_proxy
@@ -149,7 +150,7 @@ master_doc = 'index'
 # General information about the project.
 # project = u'Specify this via command line'
 from datetime import date
-copyright = u'%s, Autodesk' % date.today().year 
+copyright = u'%s, Autodesk' % date.today().year
 author = u'Autodesk'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -176,7 +177,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = [ 'build/*' ]
+exclude_patterns = ['build/*']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -308,7 +309,7 @@ html_show_sphinx = False
 ###################################################################################################################
 
 # this tells sphinx to include both the doc string from __init__
-# and from the class doc string when creating the doc chunk for a 
+# and from the class doc string when creating the doc chunk for a
 # class. Without this set, the constructor parameters cannot easily be
 # documented.
 autoclass_content = "both"
@@ -321,6 +322,6 @@ htmlhelp_basename = "tkdoc"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/2", None),
     "PySide": ("http://pyside.github.io/docs/pyside/", None),
-    }
+}
 
 autodoc_member_order = "bysource"

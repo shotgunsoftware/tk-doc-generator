@@ -210,6 +210,7 @@ def main(folder, sphinx_config_path):
             output_folder=sphinx_folder,
             custom_parents=custom_parents)
 
+
 if __name__ == "__main__":
     log.setLevel(logging.INFO)
     ch = logging.StreamHandler()
@@ -235,4 +236,3 @@ if __name__ == "__main__":
 
     log.info("Exiting with code {}.".format(exit_code))
     sys.exit(exit_code)
-
