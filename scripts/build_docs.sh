@@ -17,6 +17,7 @@
 # exit on error
 set -e
 
+# parse command line arguments
 for i in "$@"
 do
 case $i in
