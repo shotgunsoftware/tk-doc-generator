@@ -79,12 +79,17 @@ def generate_pull_request_comment(doc_url):
     :param doc_url: url to link to
     """
     if "GITHUB_TOKEN" not in os.environ:
-        log.error("Cannot add comment to pull request with link to docs - no GITHUB_TOKEN env var defined.")
+        log.error("Cannot add comment to pull request with link "
+                  "to docs - no GITHUB_TOKEN env var defined.")
     else:
         log.info("Adding PR comment with link to generated documentation...")
-        cmd = "curl -H 'Authorization: token {token}' -X POST ".format(token=os.environ["GITHUB_TOKEN"])
-        cmd += "-d '{\"body\": \"[Documentation Preview](%s)\"}' " % (doc_url,)
-        cmd += "'https://api.github.com/repos/{repo_slug}/issues/{pull_request}/comments'".format(
+        cmd = "curl -H 'Authorization: token {token}' -X POST ".format(
+            token=os.environ["GITHUB_TOKEN"]
+        )
+        cmd += "-d '{\"body\": \"[Documentation Preview](%s)\"}' " % (
+            doc_url,
+        )
+        cmd += "'https://api.github.com/repos/{repo_slug}/issues/{pull_request}/comments'".format(  # noqa
             repo_slug=os.environ["TRAVIS_REPO_SLUG"],
             pull_request=os.environ["TRAVIS_PULL_REQUEST"]
         )
@@ -102,8 +107,12 @@ def main():
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
 
+    # grab state from CI
+    current_branch = os.environ.get("TRAVIS_BRANCH")
+    inside_pr = os.environ.get("TRAVIS_PULL_REQUEST") != "false"
+
     # first figure out i we are on master or in a PR.
-    if os.environ.get("TRAVIS_BRANCH") != "master" or os.environ.get("TRAVIS_PULL_REQUEST") != "false":
+    if current_branch != "master" or inside_pr:
         # we are in a PR.
         log.info("Inside a pull request.")
 
@@ -113,19 +122,23 @@ def main():
 
             s3_bucket = os.environ["S3_BUCKET"]
             target_url = os.environ["S3_WEB_URL"]
-            target_url_path = "/tk-doc-generator/{commit}".format(commit=os.environ["TRAVIS_COMMIT"])
+            target_url_path = "/tk-doc-generator/{commit}".format(
+                commit=os.environ["TRAVIS_COMMIT"]
+            )
 
         else:
-            log.warning("No S3_BUCKET and S3_WEB_URL detected in environment. No S3 preview will be generated")
+            log.warning("No S3_BUCKET and S3_WEB_URL detected in environment. "
+                        "No S3 preview will be generated")
             s3_bucket = None
-            # enter dummy paths so we can at least build the docs to check for errors
+            # enter dummy paths so we can at least build
+            # the docs to check for errors
             target_url = "https://dummy.url.com"
             target_url_path = "/"
 
         target_full_url = "{url}{path}/index.html".format(url=target_url, path=target_url_path)
 
         # build the doc
-        doc_command = "{script} --url={url} --url-path={path} --source={source} --output={output}".format(
+        doc_command = "{script} --url={url} --url-path={path} --source={source} --output={output}".format( # noqa
             script=doc_script,
             url=target_url,
             path=target_url_path,
@@ -142,7 +155,8 @@ def main():
                 aws_secret_access_key=os.environ["AWS_S3_ACCESS_TOKEN"]
             )
 
-            # note: skip the first slash when uploading to S3 in order to generate a correct path.
+            # note: skip the first slash when uploading to S3
+            #       in order to generate a correct path.
             upload_folder_to_s3(
                 s3_bucket,
                 s3_client,
@@ -157,13 +171,14 @@ def main():
 
     else:
         # inside master
-        log.info("Inside master. Will build docs to prepare for a deploy to gh-pages")
+        log.info("Inside master. Will build docs "
+                 "to prepare for a deploy to gh-pages")
 
         if not("DOC_URL" in os.environ and "DOC_PATH" in os.environ):
             raise RuntimeError("Need to define DOC_URL and DOC_PATH")
 
         # build the doc
-        doc_command = "{script} --url={url} --url-path={path} --source={source} --output={output}".format(
+        doc_command = "{script} --url={url} --url-path={path} --source={source} --output={output}".format( # noqa
             script=doc_script,
             url=os.environ["DOC_URL"],
             path=os.environ["DOC_PATH"],
@@ -191,6 +206,3 @@ if __name__ == "__main__":
 
     log.info("Exiting with code {}.".format(exit_code))
     sys.exit(exit_code)
-
-
-
