@@ -1,3 +1,5 @@
+[![Linting](https://img.shields.io/badge/PEP8%20by-Hound%20CI-a873d1.svg)](https://houndci.com)
+
 # Toolkit Documentation Generator
 
 This repository makes it easy to generate documentation for 
