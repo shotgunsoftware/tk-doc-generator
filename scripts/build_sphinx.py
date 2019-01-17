@@ -202,7 +202,7 @@ def main(folder, sphinx_config_path):
         source_folder = "{}_rst".format(sphinx_folder)
         shutil.move(sphinx_folder, source_folder)
 
-        # execute docgen test
+        # execute docgen
         sphinx_to_markdown(
             sphinx_config_path=sphinx_config_path,
             input_folder=source_folder,
