@@ -132,7 +132,6 @@ def main(folder, sphinx_config_path):
         #       git_url: https://github.com/shotgunsoftware/tk-core.git
         #       parent: /
 
-
         log.info("Detected sphinx.yml configuration file.")
 
         yaml_file = os.path.join(input_folder, "sphinx.yml")
