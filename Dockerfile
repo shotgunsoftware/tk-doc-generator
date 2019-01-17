@@ -8,7 +8,7 @@
 # dockerfile to spin up a container suitable for generation of documentation
 
 FROM centos:7
-LABEL maintainer="manne@shotgunsoftware.com>"
+LABEL maintainer="toolkit@shotgunsoftware.com>"
 
 #
 # Build

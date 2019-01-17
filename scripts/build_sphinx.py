@@ -164,7 +164,7 @@ def main(folder, sphinx_config_path):
             index_files.append("{}/index".format(repo_name))
 
             execute_external_command(
-                "git clone --depth=50 {repo} {folder}".format(repo=params["git_url"], folder=git_folder)
+                "git clone --depth=1 {repo} {folder}".format(repo=params["git_url"], folder=git_folder)
             )
 
             # check out latest tag
@@ -179,6 +179,9 @@ def main(folder, sphinx_config_path):
             # add python source to pythonpath
             # so that the sphinx build can auto-document methods etc.
             add_to_pythonpath(os.path.join(git_folder, "python"))
+
+            # add hooks to pythonpath
+            add_to_pythonpath(os.path.join(git_folder, "hooks"))
 
             # copy docs folder into target structure
             shutil.move(os.path.join(git_folder, "docs"), target_folder)
