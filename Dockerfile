@@ -73,10 +73,3 @@ RUN pip install -r requirements.txt
 RUN gem install bundler -v 1.17.2 --no-document
 RUN bundle config --global jobs 7
 RUN bundle install
-
-
-
-
-
-
-
