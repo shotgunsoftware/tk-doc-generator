@@ -77,7 +77,6 @@ DEPENDENCIES
   jekyll-polyglot
   jekyll-relative-links
   just-the-docs!
-  tzinfo-data
 
 BUNDLED WITH
    1.17.2
