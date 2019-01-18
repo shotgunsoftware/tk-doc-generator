@@ -53,7 +53,7 @@ echo "---------------------------------------------------"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-TMP_FOLDER=${THIS_DIR}/../_build
+TMP_FOLDER=${THIS_DIR}/../_doc_generator_tmp
 TMP_BUILD_FOLDER=${TMP_FOLDER}/markdown_src
 
 echo ""
