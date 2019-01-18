@@ -68,20 +68,28 @@ If you want pull request previews, you need to define the following:
 - Your documentation needs to be located in `/docs`.
 - The build output will be generated in `/_build` (see travis example below).
 
+### Setting up a github access token
+
+In order for the CI to deploy to the `gh-pages` branch, you need to provide it with an access token
+so that it can use github on your behalf. You can generate one by going to your personal settings, 
+developer, access tokens. Make sure you restrict the access token to only have access to public repos:
+
+![access_token](./images/github_access_token.png)
+
 
 ### Example `.travis.yml` file
 
 The following travis file illustrates how to integrate:
 
 ```yaml
-# Copyright 2019 Autodesk, Inc.  All rights reserved.
-#
-# Use of this software is subject to the terms of the Autodesk license agreement
-# provided at the time of installation or download, or which otherwise accompanies
-# this software in either electronic or hard copy form.
-#
-
 language: python
+
+global:
+    - DOC_URL=https://developer.shotgunsoftware.com
+    - DOC_PATH=/tk-doc-generator
+    - S3_BUCKET=my-preview-bucket
+    - S3_WEB_URL=http://my-preview-bucket.s3-website.my-region.amazonaws.com
+
 
 python:
     - "2.7"
@@ -140,5 +148,5 @@ Note: For maintenance operations, a `/scripts/docker-bash.sh` script is handy.
 We recommend using the following shield to highlight that there are documentation
 build using the `tk-doc-generator`:
 
-[![build status](https://img.shields.io/badge/Shotgun-developer%20docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
+[![build status](https://img.shields.io/badge/Shotgun-eveloper%20docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
 
