@@ -140,5 +140,5 @@ Note: For maintenance operations, a `/scripts/docker-bash.sh` script is handy.
 We recommend using the following shield to highlight that there are documentation
 build using the `tk-doc-generator`:
 
-[![build status](https://img.shields.io/badge/Shotgun-developer%20docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
+[![build status](https://img.shields.io/badge/Shotgun-Developer%20Docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
 
