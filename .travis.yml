@@ -33,7 +33,7 @@ install:
   - python ~/virtualenv/python${TRAVIS_PYTHON_VERSION}/bin/pyside_postinstall.py -install
   #
   # jekyll dependencies
-  - bundle install --gemfile=./Gemfile --deployment
+  - bundle install --deployment
   #
   # sphinx dependnecies
   - pip install -r ./requirements.txt
