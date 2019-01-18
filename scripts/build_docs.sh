@@ -57,7 +57,7 @@ TMP_FOLDER=${THIS_DIR}/../_build
 TMP_BUILD_FOLDER=${TMP_FOLDER}/markdown_src
 
 echo ""
-ehco "Intermediate files will be written to '${TMP_FOLDER}'."
+echo "Intermediate files will be written to '${TMP_FOLDER}'."
 
 echo ""
 echo "Cleaning out internal build location '${TMP_FOLDER}'..."

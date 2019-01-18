@@ -102,7 +102,20 @@ def main():
     """
     # expected file and build locations
     this_folder = os.path.dirname(__file__)
+
+    # note - attempt to detect if we are running this for our own
+    # ./docs folder or we are a submodule
     root_path = os.path.abspath(os.path.join(this_folder, ".."))
+
+    if os.path.exists(os.path.join(root_path, "_travis.yml")):
+        # a travis folder exists in the parent location
+        # this means that we are running as a submodule
+        # inside another repo
+        log.info("Running as a git submodule...")
+    else:
+        # Looks like we are not a submodule.
+        root_path = os.path.abspath(this_folder)
+
     doc_script = os.path.join(this_folder, "scripts", "build_docs.sh")
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
