@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Technical Details
-nav_order: 1
-permalink: /
+nav_order: 2
+permalink: /tech_details
 ---
 
 # Technical Details
