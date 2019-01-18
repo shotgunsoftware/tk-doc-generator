@@ -68,6 +68,14 @@ If you want pull request previews, you need to define the following:
 - Your documentation needs to be located in `/docs`.
 - The build output will be generated in `/_build` (see travis example below).
 
+### Setting up a github access token
+
+In order for the CI to deploy to the `gh-pages` branch, you need to provide it with an access token
+so that it can use github on your behalf. You can generate one by going to your personal settings, 
+developer, access tokens. Make sure you restrict the access token to only have access to public repos:
+
+![access_token](./images/github_access_token.png)
+
 
 ### Example `.travis.yml` file
 
