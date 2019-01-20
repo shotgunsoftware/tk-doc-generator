@@ -3,10 +3,9 @@ layout: default
 title: Integrating the Doc Generator
 nav_order: 2
 permalink: /integrating
-has_children: true
 ---
 
-# Integrating the Doc Generator with your repository
+# Toolkit Documentation Generator
 
 This repository makes it easy to generate documentation for 
 Shotgun Ecosystem and Toolkit related repositories.

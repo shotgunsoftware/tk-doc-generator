@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Technical Details
-nav_order: 3
-permalink: /tech_details
+nav_order: 1
+permalink: /integrating/tech_details
+parent: Integrating the Doc Generator
 ---
 
 # Technical Details
