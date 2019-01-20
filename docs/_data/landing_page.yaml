@@ -3,6 +3,9 @@
 # main logo image
 image: ./images/sg_doc_logo.png
 
+# display main search bar?
+enable_search: false
+
 # main headline blurb
 content: This repository makes it easy to generate documentation for Shotgun Ecosystem and Toolkit related repositories.
 
