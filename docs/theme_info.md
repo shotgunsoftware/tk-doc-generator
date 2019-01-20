@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Theme Info
-nav_order: 3
+nav_order: 4
 permalink: /theme_info
 external_url: https://pmarsceill.github.io/just-the-docs/
 ---

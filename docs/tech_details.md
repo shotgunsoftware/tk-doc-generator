@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Technical Details
-nav_order: 2
+nav_order: 3
 permalink: /tech_details
 ---
 

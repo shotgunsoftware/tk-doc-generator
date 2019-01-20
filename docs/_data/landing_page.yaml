@@ -1,0 +1,23 @@
+# This file holds data for the landing_page custom layout found in _layouts/landing_page.html
+
+# main logo image
+image: ./images/sg_doc_logo.png
+
+# display main search bar?
+enable_search: false
+
+# main headline blurb
+content: This repository makes it easy to generate documentation for Shotgun Ecosystem and Toolkit related repositories.
+
+# different tiles to be displayed below headline blurb
+tiles:
+- name: Installation
+  description: How to integrate the doc generator with your repository.
+  image: ./images/dev_icon.png
+  target: ./integrating
+
+- name: Authoring
+  description: Authoring documentation with the doc generator system.
+  image: ./images/book_icon.png
+  target: ./authoring
+
