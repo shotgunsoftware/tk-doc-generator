@@ -3,14 +3,15 @@ layout: default
 title: Integrating the Doc Generator
 nav_order: 2
 permalink: /integrating
+has_children: true
 ---
 
-# Toolkit Documentation Generator
+# Integrating the Doc Generator with your repository
 
 This repository makes it easy to generate documentation for 
 Shotgun Ecosystem and Toolkit related repositories.
 
-## What does it do?
+## What does the repo do?
 
 Integrate this repository as a submodule in a Toolkit App or other 
 Shotgun App that benefits and it will:
@@ -26,19 +27,20 @@ Shotgun App that benefits and it will:
 
 ### Tech info
 
-- Sphinx is used to convert rst into markdown
-- Jekyll is used to convert markdown into a html website
+- [Sphinx](http://www.sphinx-doc.org/) is used to convert rst into markdown
+- [Jekyll](https://jekyllrb.com/) is used to convert markdown into a html website
 
 
 ## Setting up doc generation
 
 In order to use it for your repository, you need the following:
  
-- Documentation (in markdown or rst form) located in a `/docs` folder.
+- Documentation (in markdown or `rst` form) located in a `/docs` folder.
 - Add this repository as a submodule of your repo in the folder `/tk-doc-generator`.
-- An S3 bucket set up for public web access if you want PR based previews.
-- A location to deploy your target website. We recommend github pages and this
-  is what the examples are based on. 
+- An AWS S3 bucket set up for public web access if you want PR based previews.
+- A location to deploy your target website. We recommend 
+  [github pages](https://pages.github.com/) and this is what the 
+  examples are based on. 
 - [Travis](https://travis-ci.org) for CI. For more information about how to set this up,
   see the section below.
 
