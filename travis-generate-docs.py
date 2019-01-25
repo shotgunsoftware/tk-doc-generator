@@ -107,9 +107,9 @@ def main():
     # ./docs folder or we are a submodule
     root_path = os.path.abspath(os.path.join(this_folder, ".."))
 
-    if os.path.exists(os.path.join(root_path, "_travis.yml")):
-        # a travis folder exists in the parent location
-        # this means that we are running as a submodule
+    if os.path.exists(os.path.join(root_path, "tk-doc-generator")):
+        # a tk-doc-generator folder exists in the parent location
+        # this means that we are running as a git submodule
         # inside another repo
         log.info("Running as a git submodule...")
     else:
