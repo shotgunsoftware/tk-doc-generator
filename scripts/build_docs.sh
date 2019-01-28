@@ -76,10 +76,22 @@ echo "Running Sphinx RST -> Markdown build process..."
 python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 
 echo "Running Jekyll to generate html from markdown..."
-BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
-bundle exec jekyll build \
---baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml,${THIS_DIR}/../../jekyll_config.yml  \
---source ${TMP_BUILD_FOLDER} --destination ${OUTPUT}
+
+# see if an external override config file exists
+OVERRIDE_CONFIG=${THIS_DIR}/../../jekyll_config.yml
+
+if [ -e "$OVERRIDE_CONFIG" ]; then
+    echo "using override config from ${OVERRIDE_CONFIG}..."
+    BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
+    bundle exec jekyll build \
+    --baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml,${OVERRIDE_CONFIG} \
+    --source ${TMP_BUILD_FOLDER} --destination ${OUTPUT}
+else
+    BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
+    bundle exec jekyll build \
+    --baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml \
+    --source ${TMP_BUILD_FOLDER} --destination ${OUTPUT}
+fi
 
 echo "------------------------------------------------------"
 echo "Build completed."
