@@ -12,7 +12,7 @@
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-docker build ${THIS_DIR}/../doc_builder -t tk-doc-generator && \
+docker build ${THIS_DIR}/../tk-doc-generator -t tk-doc-generator && \
 docker run --mount type=bind,source="${THIS_DIR}/../..",target=/app tk-doc-generator \
 ${THIS_DIR}/scripts/build_docs.sh --url=http://localhost --url-path=${THIS_DIR}/../_build --source=/app/docs --output=/app/_build && \
 echo "Documentation built in ${THIS_DIR}/../_build/index.html"
