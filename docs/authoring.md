@@ -2,7 +2,7 @@
 layout: default
 title: Authoring Documentation
 nav_order: 3
-permalink: /authoring
+permalink: /authoring/
 ---
 
 # Authoring Developer Documentation
@@ -16,7 +16,7 @@ for each file add a special header on the following form:
 layout: default
 title: Authoring Documentation
 nav_order: 3
-permalink: /authoring
+permalink: /authoring/
 ---
 ```
 

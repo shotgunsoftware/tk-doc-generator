@@ -2,7 +2,7 @@
 layout: default
 title: Integrating the Doc Generator
 nav_order: 2
-permalink: /integrating
+permalink: /integrating/
 has_children: true
 ---
 

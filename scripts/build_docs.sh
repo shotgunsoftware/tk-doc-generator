@@ -78,7 +78,7 @@ python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 echo "Running Jekyll to generate html from markdown..."
 BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
 bundle exec jekyll build \
---baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml \
+--baseurl ${URLPATH} --config ${THIS_DIR}/../jekyll/_config.yml,${THIS_DIR}/../../jekyll_config.yml  \
 --source ${TMP_BUILD_FOLDER} --destination ${OUTPUT}
 
 echo "------------------------------------------------------"

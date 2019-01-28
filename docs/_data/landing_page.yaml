@@ -11,13 +11,11 @@ content: This repository makes it easy to generate developer documentation for S
 
 # different tiles to be displayed below headline blurb
 tiles:
-- name: Installation
-  description: How to integrate the doc generator with your repository.
+- description: How to integrate the doc generator with your repository.
   image: ./images/dev_icon.png
   target: ./integrating
 
-- name: Authoring
-  description: Authoring documentation with the doc generator system.
+- description: Authoring documentation with the doc generator system.
   image: ./images/book_icon.png
   target: ./authoring
 
