@@ -23,6 +23,8 @@ plugins:
   # handles i18n.
   # See https://github.com/untra/polyglot
   - jekyll-polyglot
+  # analytics
+  - jekyll-analytics
 
 
 # default i18n configuration
@@ -34,6 +36,12 @@ parallel_localization: true
 
 permalink: pretty
 exclude: ["tk-doc-generator"]
+
+# analytics - see https://github.com/hendrikschneider/jekyll-analytics
+# jekyll_analytics:
+#  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+#    id: UA-123-456          # Required - replace with your tracking id
+#    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 # Enable or disable the site search
 search_enabled: true
