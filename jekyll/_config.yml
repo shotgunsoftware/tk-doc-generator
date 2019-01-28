@@ -25,9 +25,9 @@ plugins:
   - jekyll-polyglot
 
 
-# i18n configuration for all languages shotgun supports
-languages: ["en", "ko", "ja", "zh_CN"]
-lang_vars: ["English", "한국어", "日本語", "简体中文"]
+# default i18n configuration
+languages: ["en"]
+lang_vars: ["English"]
 default_lang: "en"
 exclude_from_localization: ["javascript", "css"]
 parallel_localization: true
