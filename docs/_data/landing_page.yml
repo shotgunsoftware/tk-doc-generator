@@ -3,19 +3,15 @@
 # main logo image
 image: ./images/sg_doc_logo.png
 
-# display main search bar?
-enable_search: false
-
 # main headline blurb
 content: This repository makes it easy to generate developer documentation for Shotgun Ecosystem and Toolkit related repositories.
 
 # different tiles to be displayed below headline blurb
 tiles:
-- description: How to integrate the doc generator with your repository.
+- name: integrating
   image: ./images/dev_icon.png
   target: ./integrating
 
-- description: Authoring documentation with the doc generator system.
+- name: authoring
   image: ./images/book_icon.png
   target: ./authoring
-
