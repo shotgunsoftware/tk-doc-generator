@@ -20,7 +20,7 @@ permalink: /authoring/
 ---
 ```
 
-## This repository
+## This repository is a sample
 
 This repository serves as an example of how you can author your documentation.
 
@@ -29,24 +29,30 @@ This repository serves as an example of how you can author your documentation.
 For an extensive reference how to author docs, go over to the theme
 page documentation: https://pmarsceill.github.io/just-the-docs/
 
-# Landing page
+## Special Pages
+
+The following special pages exist:
+
+### Landing page
 
 If you want to add a landing page to your documentation, create the 
-following two files:
+following three files:
 
-- A file `_data/landing_page.yml` to describe the content. For an example, 
-  see [the tk-doc-generator landing page](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/docs/_data/landing_page.yaml).
 - A markdown file (typically `index.md`) with its `permalink` setting set to `/`.
   This file should be using the `landing_page` layout. For an example, see
   [the tk-doc-generator landing page](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/docs/index.md).
 
+- A file `_data/landing_page.yml` to describe the content. For an example, 
+  see [the tk-doc-generator landing page](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/docs/_data/landing_page.yaml).
+
+- A file `_data/landing_page_text.yml` containing the content. For an example, see 
+  the landing page for [this documentation](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/docs/_data/landing_page_text.yml).
 
 # Multiple languages
 
 The documentation generator supports multiple languages (i18n) support via 
-[polyglot](https://polyglot.untra.io). 
+[polyglot](https://polyglot.untra.io). For more information, see its documentation.
 
-TODO: Add more documentation here.
 
 
 
