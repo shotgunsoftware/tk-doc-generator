@@ -44,23 +44,26 @@ In order to use it for your repository, you need the following:
 - [Travis](https://travis-ci.org) for CI. For more information about how to set this up,
   see the section below.
 
+## Configuration file 
+The doc generator comes with a [default jekyll configuration file](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/jekyll/_config.yml). If you wish to override any settings, you can add a 
+`jekyll_config.yml` file into the root level of your repository. 
 
 ## Integrating with Travis CI
 
 Once you have set up this repository as a submodule to your code, setting up 
 travis CI or adding it to an existing CI is easy.
 
-### Environment variables
+### Environment variables to set in travis file
 
-The following environment variables can be defined:
+The following environment variables should be defined in the travis `.travis.yml` file:
 
 - `DOC_URL` - The target url where released docs will go, e.g. `https://developer.shotgunsoftware.com`.
 - `DOC_PATH` - The path where the released docs will go, e.g. `/dev-docs`. 
-
-If you want pull request previews, you need to define the following:
-
 - `S3_BUCKET` - the name of a publicly accessible S3 bucket, in website hosting mode, e.g. `mybucket`.
 - `S3_WEB_URL` - the website url where the bucket can be accessed, e.g. `http://mybucket.s3-website.eu-west-2.amazonaws.com`.
+
+The following (secret) environment variables should be defined in the travis preferences:
+
 - `AWS_S3_ACCESS_KEY` - AWS access key with permissions to put new items into the `S3_BUCKET`.
 - `AWS_S3_ACCESS_TOKEN` - AWS access token with permissions to put new items into the `S3_BUCKET`.
 - `GITHUB_TOKEN` - Github access token used to create a comment on the PR with a link to the built docs. 
