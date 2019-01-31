@@ -27,8 +27,7 @@ This repository serves as an example of how you can author your documentation.
 ## Formatting
 
 The theme used to generate documentation can be found [here](https://github.com/shotgunsoftware/just-the-docs).
-In addition to standard markdown, it supports several extensions. For an extensive reference how to author docs, 
-check out the theme page documentation: https://pmarsceill.github.io/just-the-docs/
+In addition to standard markdown, it supports several extensions. For a reference, check out the [theme documentation](https://pmarsceill.github.io/just-the-docs/). 
 
 ## Special Pages
 
