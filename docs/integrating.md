@@ -53,7 +53,7 @@ The doc generator comes with a [default jekyll configuration file](https://githu
 Once you have set up this repository as a submodule to your code, setting up 
 travis CI or adding it to an existing CI is easy.
 
-### Environment variables to set in travis file
+### Environment variables
 
 The following environment variables should be defined in the travis `.travis.yml` file:
 
