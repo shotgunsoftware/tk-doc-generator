@@ -24,10 +24,11 @@ permalink: /authoring/
 
 This repository serves as an example of how you can author your documentation.
 
-## Reference documentation
+## Formatting
 
-For an extensive reference how to author docs, go over to the theme
-page documentation: https://pmarsceill.github.io/just-the-docs/
+The theme used to generate documentation can be found [here](https://github.com/shotgunsoftware/just-the-docs).
+In addition to standard markdown, it supports several extensions. For an extensive reference how to author docs, 
+check out the theme page documentation: https://pmarsceill.github.io/just-the-docs/
 
 ## Special Pages
 
