@@ -1,5 +1,6 @@
+[![Documentation](https://img.shields.io/badge/Shotgun-Developer%20Docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
+[![Build Status](https://secure.travis-ci.org/shotgunsoftware/tk-doc-generator.svg?branch=master)](http://travis-ci.org/shotgunsoftware/tk-doc-generator)
 [![Linting](https://img.shields.io/badge/PEP8%20by-Hound%20CI-a873d1.svg)](https://houndci.com)
-[![build status](https://img.shields.io/badge/Shotgun-Developer%20Docs-blue.svg)](https://developer.shotgunsoftware.com/tk-doc-generator)
 
 # Toolkit Documentation Generator
 
