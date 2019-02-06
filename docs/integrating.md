@@ -1,9 +1,7 @@
 ---
 layout: default
 title: Integrating the Doc Generator
-nav_order: 2
 permalink: /integrating/
-has_children: true
 ---
 
 # Integrating the Doc Generator with your repository

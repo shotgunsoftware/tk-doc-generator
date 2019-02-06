@@ -1,0 +1,19 @@
+# Table of contents
+
+- caption: authoring
+  children:
+  - page: /authoring/
+  - text: theme-info
+    url: https://pmarsceill.github.io/just-the-docs/
+
+- caption: setting-up
+  children:
+  - page: /integrating/
+  - page: /integrating/tech_details/
+
+
+
+
+
+
+
