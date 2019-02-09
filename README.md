@@ -32,8 +32,12 @@ Check out the documentation:
 
 ## Examples of documentation
 
-- This repository's documentation! [docs](https://developer.shotgunsoftware.com/tk-doc-generator) / [source](https://github.com/shotgunsoftware/tk-doc-generator/tree/master/docs).
+Apart from the documentation links above, a great way to understand
+a system is to look at how it is being used in practice. Below are some examples of what documentation sites generated with the generator
+looks like, along with their source markdown:
 
-- The Shotgun developer site [docs](https://developer.shotgunsoftware.com) / [source](https://github.com/shotgunsoftware/developer-beta/tree/master/docs)
+- This repository's documentation: [[docs](https://developer.shotgunsoftware.com/tk-doc-generator)] / [[source](https://github.com/shotgunsoftware/tk-doc-generator/tree/master/docs)].
+
+- The Shotgun developer site: [[docs](https://developer.shotgunsoftware.com)] / [[source](https://github.com/shotgunsoftware/shotgunsoftware.github.io/tree/master/docs)].
 
 
