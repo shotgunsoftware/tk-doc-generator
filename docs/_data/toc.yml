@@ -3,8 +3,10 @@
 - caption: authoring
   children:
   - page: /authoring/
-  - text: theme-info
-    url: https://pmarsceill.github.io/just-the-docs/
+  - page: /authoring/markdown/
+  - page: /authoring/toc/
+  - page: /authoring/landing-page/
+  - page: /authoring/preview/
 
 - caption: setting-up
   children:

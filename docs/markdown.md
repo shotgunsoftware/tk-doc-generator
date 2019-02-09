@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Introduction
-permalink: /authoring/
+title: Markdown syntax
+permalink: /authoring/markdown/
 ---
 
 # Authoring Developer Documentation

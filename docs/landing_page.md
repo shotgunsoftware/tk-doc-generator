@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Introduction
-permalink: /authoring/
+title: Authoring Documentation
+permalink: /authoring/landing-page/
 ---
 
 # Authoring Developer Documentation

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Introduction
-permalink: /authoring/
+permalink: /authoring/pereview/
 ---
 
 # Authoring Developer Documentation
