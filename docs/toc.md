@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Authoring Documentation
+title: Table of contents
 permalink: /authoring/toc/
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Authoring Documentation
+title: Custom Landing Page
 permalink: /authoring/landing-page/
 ---
 
