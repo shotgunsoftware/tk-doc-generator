@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Technical Details
-permalink: /integrating/tech_details/
+permalink: /tech_details/
 ---
 
 # Technical Details

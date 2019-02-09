@@ -9,8 +9,10 @@
 - caption: setting-up
   children:
   - page: /integrating/
-  - page: /integrating/tech_details/
 
+- caption: developing
+  children:
+  - page: /tech_details/
 
 
 
