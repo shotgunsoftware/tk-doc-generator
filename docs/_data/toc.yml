@@ -4,6 +4,9 @@
   children:
   - page: /authoring/
   - page: /authoring/markdown/
+    children:
+    - text: theme-info
+      url: https://pmarsceill.github.io/just-the-docs/
   - page: /authoring/toc/
   - page: /authoring/landing-page/
   - page: /authoring/preview/
