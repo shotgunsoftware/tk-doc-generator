@@ -9,8 +9,9 @@
   - page: /authoring/
   - page: /authoring/markdown/
     children:
-    - text: theme-info
-      url: https://pmarsceill.github.io/just-the-docs/
+    - text: markdown-cheatsheet
+      url: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+  - page: /authoring/figures/
   - page: /authoring/toc/
     children:
     - page: /authoring/toc/file-structure/

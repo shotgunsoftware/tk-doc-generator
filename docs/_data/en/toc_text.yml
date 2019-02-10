@@ -4,6 +4,6 @@
 #
 
 authoring: Authoring docs
-theme-info: Visual Theme Info
+markdown-cheatsheet: Markdown Cheat Sheet
 setting-up: Installation
 developing: Developing tk-doc-generator

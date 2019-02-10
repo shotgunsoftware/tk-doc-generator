@@ -6,36 +6,12 @@ permalink: /authoring/markdown/
 
 # Markdown Formatting Cookbook
 
-foo bar
+For documentation, use standard [github markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+While authoring documentation, you can use the github markdown preview functionality that exists in the github web ui.
 
-## Formatting
+## Page headers
 
-The theme used to generate documentation can be found [here](https://github.com/shotgunsoftware/just-the-docs).
-In addition to standard markdown, it supports several extensions. For a reference, check out the [theme documentation](https://pmarsceill.github.io/just-the-docs/). 
-
-
-
-
-### Content Authoring guidelines
-
-#### Diagrams and figures
-- Use https://www.draw.io/ to author diagrams.
-- The source file should be saved next to the image.
-- Open sans (https://fonts.google.com/specimen/Open+Sans) should be used for text.
-- We are not translating any images, so text should be kept to a minimum.
-- Exported images should be 144dpi and stored in png format.
-- Graphics should be functional in style, typically using grayscales only.
-
-#### Screenshots
-- Screenshots should be 144dpi and stored in png format
-- Post processing should be kept to a minimum
-- If possible, screenshot an entire window rather than cropping things
-    - Use CMD+SHIFT+4 on the mac for easy screenshots of windows
-
-
-### Page headers
-
-Every page needs to have a standardized header with the following required fields:
+Every page that should be processed by the system needs to have a header on the following form:
 
 ```
 ---
@@ -45,13 +21,37 @@ permalink: /my-wonderful-page/
 ---
 ```
 
-**NOTE:** Make sure to add the final slash to the permalink. 
+{% include info title="Permalink syntax" content="Make sure to add the final slash to the permalink." %}
 
-In addition, the following fields can be useful:
 
-- `nav_order: 1` - controls the TOC order
-- `has_children: true` - for all items that have children
-- `external_url: https://support.shotgunsoftware.com/hc/requests/new` - for TOC entries pointing to an external url.
-- `parent: My Wonderful Page` - for child pages.
+## Special Syntax
 
-For more information, see the [tk-doc-generator docs](https://developer.shotgunsoftware.com/tk-doc-generator).
+Several special additions exists that can be used to help build great documentation.
+
+### Info Box
+
+To higlight especially important things, use an info box:
+
+{% include info title="Super Important" content="Some things are really worth pointing out." %}
+
+```
+{% include info title="Super Important" content="Some things are really worth pointing out." %}
+```
+
+### Warning Box
+
+To warn the reader about things, use a warning box:
+
+{% include warning title="Scary stuff ahead" content="Beware of the quick brown fox jumping over the lazy dog." %}
+
+```
+{% include warning title="Scary stuff ahead" content="Beware of the quick brown fox jumping over the lazy dog." %}
+```
+
+### Enternal links
+
+Please note that all external links will be automatically decorated:
+
+- [google](https://www.google.com/)
+
+
