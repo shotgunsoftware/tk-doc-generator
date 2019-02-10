@@ -6,8 +6,7 @@ permalink: /developing/tech-details/
 
 # Technical Details
 
-This document covers technical details around the internals of the repository
-and how to maintain it.
+This document covers technical details around the internals of the repository and how to maintain it.
 
 ## Updating the theme version
 

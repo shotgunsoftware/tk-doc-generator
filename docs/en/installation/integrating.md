@@ -18,15 +18,23 @@ Shotgun App that benefits and it will:
 - Provide a consistent look and feel to build output.
 - Convert any rst/sphinx files in the `/docs` folder into multi-language html.
 - Automatically build and deploy documentation that is pushed to master.
-- Automatically build S3 based previews for all commits in PRs.
+- Automatically build a full site preview for each commit in a pull request. The previews are stored in an AWS S3 bucket of your choosing.
 - Allow you to run local (docker based) previews.
 - Allow you to generate a full reference collection site, where sphinx/rst
   docs from multiple repositories are collected and generated as a single release.
+
+### Is it difficult to set up?
+
+We recommend a devops or developer to set up the documentation intially. Once set up, it is very easy to author and manage
+the documentation. For the setup phase, you need a basic 
+understanding of git, github, CI (travis especially) and AWS.
 
 ### Tech info
 
 - [Sphinx](http://www.sphinx-doc.org/) is used to convert rst into markdown
 - [Jekyll](https://jekyllrb.com/) is used to convert markdown into a html website
+- [SG just-the-docs](https://github.com/shotgunsoftware/just-the-docs) is the jekyll theme used to render the site.
+- [SG sphinx-markdown-builder](https://github.com/shotgunsoftware/sphinx-markdown-builder) is used to convert sphinx code into markdown.
 
 
 ## Setting up doc generation
@@ -51,6 +59,10 @@ The doc generator comes with a [default jekyll configuration file](https://githu
 Once you have set up this repository as a submodule to your code, setting up 
 travis CI or adding it to an existing CI is easy.
 
+### Using an example
+
+If you prefer to work off an example rather than setting things up from scratch, we recommend making a clone of the [Shotgun developer site](https://github.com/shotgunsoftware/shotgunsoftware.github.io) as a starting point.
+
 ### Environment variables
 
 The following environment variables should be defined in the travis `.travis.yml` file:
@@ -59,6 +71,8 @@ The following environment variables should be defined in the travis `.travis.yml
 - `DOC_PATH` - The path where the released docs will go, e.g. `/dev-docs`. 
 - `S3_BUCKET` - the name of a publicly accessible S3 bucket, in website hosting mode, e.g. `mybucket`.
 - `S3_WEB_URL` - the website url where the bucket can be accessed, e.g. `http://mybucket.s3-website.eu-west-2.amazonaws.com`.
+
+### Travis secret preferences
 
 The following (secret) environment variables should be defined in the travis preferences:
 
@@ -139,11 +153,9 @@ deploy:
 
 ## Running locally
 
-In order to run the setup manually, you need docker.
+In order to run the setup manually, you need docker installed.
 Simply use the `/preview_docs.sh` script located in the root folder of
 this repo in order to build the documents. 
-
-Note: For maintenance operations, a `/scripts/docker-bash.sh` script is handy.
 
 
 ## Github Shields
