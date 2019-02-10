@@ -8,16 +8,18 @@
     - text: theme-info
       url: https://pmarsceill.github.io/just-the-docs/
   - page: /authoring/toc/
+    children:
+    - page: /authoring/toc/file-structure/
   - page: /authoring/landing-page/
   - page: /authoring/preview/
 
 - caption: setting-up
   children:
-  - page: /integrating/
+  - page: /installation/integrating/
 
 - caption: developing
   children:
-  - page: /tech_details/
+  - page: /developing/tech-details/
 
 
 
