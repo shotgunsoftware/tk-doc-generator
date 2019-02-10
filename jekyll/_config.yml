@@ -5,7 +5,8 @@
 # this software in either electronic or hard copy form.
 #
 
-# jekyll configuration file for Shotgun Developer Site Environment
+# base level jekyll configuration file for Shotgun Developer Site Environment
+# values here can be overriden by adding a jekyll_config.yml in your repository.
 
 # Site settings
 title: SG Developer
@@ -45,13 +46,5 @@ exclude: ["tk-doc-generator"]
 
 # Enable or disable the site search
 search_enabled: true
-
-# note: theme also supports a dark theme
-#color_scheme: "dark"
-
-# Aux links for the upper right navigation
-aux_links:
-  # "Shotgun Support":
-  #   - "//support.shotgunsoftware.com"
 
 
