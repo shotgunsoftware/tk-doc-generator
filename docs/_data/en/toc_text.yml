@@ -4,6 +4,6 @@
 #
 
 authoring: Authoring docs
-markdown-cheatsheet: Markdown Cheatsheet
+markdown-cheatsheet: Markdown Format
 setting-up: Installation
 developing: Developing tk-doc-generator
