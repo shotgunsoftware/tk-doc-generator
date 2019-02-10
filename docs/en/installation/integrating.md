@@ -91,7 +91,7 @@ In order for the CI to deploy to the `gh-pages` branch, you need to provide it w
 so that it can use github on your behalf. You can generate one by going to your personal settings, 
 developer, access tokens. Make sure you restrict the access token to only have access to public repos:
 
-![access_token](./images/installation/github_access_token.png)
+![access_token](../images/installation/github_access_token.png)
 
 
 ### Example `.travis.yml` file
