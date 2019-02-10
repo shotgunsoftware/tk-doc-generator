@@ -6,4 +6,7 @@ permalink: /authoring/toc/
 
 # Managing a table of contents
 
-foo bar baz
+To crate a the table of contents, you need to add two files:
+
+- A `docs/_data/toc.yml` table of contents structure file.
+- A `docs/_data/en/toc_text.yml` file containing localized strings.

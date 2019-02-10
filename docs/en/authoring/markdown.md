@@ -34,9 +34,11 @@ To higlight especially important things, use an info box:
 
 {% include info title="Super Important" content="Some things are really worth pointing out." %}
 
+{% raw  %}
 ```
-{&percnt; include info title="Super Important" content="Some things are really worth pointing out." &percnt;}
+{% include info title="Super Important" content="Some things are really worth pointing out." %}
 ```
+{% endraw  %}
 
 ### Warning Box
 
@@ -44,9 +46,11 @@ To warn the reader about things, use a warning box:
 
 {% include warning title="Scary stuff ahead" content="Beware of the quick brown fox jumping over the lazy dog." %}
 
+{% raw  %}
 ```
-{&percnt; include warning title="Scary stuff ahead" content="Beware of the quick brown fox jumping over the lazy dog." &percnt;}
+{% include warning title="Scary stuff ahead" content="Beware of the quick brown fox jumping over the lazy dog." %}
 ```
+{% endraw  %}
 
 ### Enternal links
 
