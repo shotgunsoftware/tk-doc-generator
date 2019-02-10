@@ -20,6 +20,7 @@
 - caption: setting-up
   children:
   - page: /installation/integrating/
+  - page: /installation/languages/
 
 - caption: developing
   children:
