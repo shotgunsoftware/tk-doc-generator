@@ -14,4 +14,4 @@ The following folders exist:
 
 ## Content authoring guide
 
-For more information, see the [content authoring guide](https://developer.shotgunsoftware.com/tk-doc-generator/authoring/landing-page/).
+For more information, see the [content authoring guide](https://developer.shotgunsoftware.com/tk-doc-generator/authoring/).
