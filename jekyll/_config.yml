@@ -45,6 +45,6 @@ exclude: ["tk-doc-generator"]
 #    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 # Enable or disable the site search
-search_enabled: true
+search_enabled: false
 
 
