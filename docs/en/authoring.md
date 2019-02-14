@@ -2,6 +2,7 @@
 layout: default
 title: Introduction
 permalink: /authoring/
+lang: en
 ---
 
 # Authoring Developer Documentation

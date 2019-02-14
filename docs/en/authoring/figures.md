@@ -2,6 +2,7 @@
 layout: default
 title: Figures and Diagrams
 permalink: /authoring/figures/
+lang: en
 ---
 
 # Handling figures, screenshots and diagrams

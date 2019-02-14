@@ -2,6 +2,7 @@
 layout: default
 title: Configuring Languages
 permalink: /installation/languages/
+lang: en
 ---
 
 # Configuring multiple languages

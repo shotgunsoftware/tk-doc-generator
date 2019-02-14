@@ -2,6 +2,7 @@
 layout: default
 title: Custom Landing Page
 permalink: /authoring/landing-page/
+lang: en
 ---
 
 # Creating a custom landing page

@@ -2,6 +2,7 @@
 layout: default
 title: Local Preview
 permalink: /authoring/pereview/
+lang: en
 ---
 
 # Previewing your changes locally

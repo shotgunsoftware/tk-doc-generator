@@ -2,6 +2,7 @@
 layout: default
 title: Table of contents
 permalink: /authoring/toc/
+lang: en
 ---
 
 # Managing a table of contents

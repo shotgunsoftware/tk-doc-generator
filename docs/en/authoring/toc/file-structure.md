@@ -2,6 +2,7 @@
 layout: default
 title: Content Structure
 permalink: /authoring/toc/file-structure/
+lang: en
 ---
 
 # How to organize markdown files on disk

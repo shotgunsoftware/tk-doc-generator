@@ -2,6 +2,7 @@
 layout: default
 title: Integrating the Doc Generator
 permalink: /installation/integrating/
+lang: en
 ---
 
 # Integrating the Doc Generator with your repository

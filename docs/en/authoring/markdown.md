@@ -2,6 +2,7 @@
 layout: default
 title: Markdown syntax
 permalink: /authoring/markdown/
+lang: en
 ---
 
 # Markdown Formatting Cookbook
@@ -18,11 +19,16 @@ Every page that should be processed by the system needs to have a header on the 
 layout: default
 title: My Wonderful Page
 permalink: /my-wonderful-page/
+lang: en
 ---
 ```
 
 {% include info title="Permalink syntax" content="Make sure to add the final slash to the permalink." %}
 
+
+### Language Support
+
+The `lang: en` defines what language the page has been written in and should follow [i18n language codes](https://developer.chrome.com/webstore/i18n).
 
 ## Special Syntax
 
