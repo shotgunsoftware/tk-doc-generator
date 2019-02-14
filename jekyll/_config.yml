@@ -44,7 +44,5 @@ exclude: ["tk-doc-generator"]
 #    id: UA-123-456          # Required - replace with your tracking id
 #    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
-# Enable or disable the site search
-search_enabled: false
 
 
