@@ -20,6 +20,7 @@ header:
 layout: default
 title: Example title
 permalink: /example/
+lang: en
 ---
 
 # Page title
@@ -43,6 +44,7 @@ You can now author all your content in the default language, specified by the `d
 layout: default
 title: Example title
 permalink: /example/
+lang: en
 ---
 
 # Page title
