@@ -85,7 +85,7 @@ OVERRIDE_CONFIG=${THIS_DIR}/../../jekyll_config.yml
 # base.url based on ${URL}. This is needed for the theme
 # to be populated correctly.
 URL_CONFIG=${TMP_BUILD_FOLDER}/_url_config.yml
-echo "url: '${URL}'" | cat > ${URL_CONFIG}
+echo "#url:'${URL}'" | cat > ${URL_CONFIG}
 
 if [ -e "$OVERRIDE_CONFIG" ]; then
     echo "using override config from ${OVERRIDE_CONFIG}..."
