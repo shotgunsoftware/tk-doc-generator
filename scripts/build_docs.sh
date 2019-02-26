@@ -84,12 +84,12 @@ OVERRIDE_CONFIG=${THIS_DIR}/../../jekyll_config.yml
 if [ -e "$OVERRIDE_CONFIG" ]; then
     echo "using override config from ${OVERRIDE_CONFIG}..."
     BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
-    bundle exec jekyll build --baseurl '${URLPATH}' \
+    bundle exec jekyll build --baseurl "${URLPATH}" \
     --config ${THIS_DIR}/../jekyll/_config.yml,${OVERRIDE_CONFIG} \
     --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
 else
     BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
-    bundle exec jekyll build --baseurl '${URLPATH}' \
+    bundle exec jekyll build --baseurl "${URLPATH}" \
     --config ${THIS_DIR}/../jekyll/_config.yml \
     --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
 fi
