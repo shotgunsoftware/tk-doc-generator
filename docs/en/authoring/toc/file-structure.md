@@ -17,6 +17,7 @@ The top folder structure should always be the language:
   |- jp
   |- ko
   |- images
+  |- all_langs
   \- _data
 ```
 
@@ -24,6 +25,7 @@ The top folder structure should always be the language:
 - All japanese documentation should be in the `jp` folder.
 - All korean documentation should be in the `ko` folder.
 - Images are shared across languanges and are stored in an `images` folder.
+- If you have content that is shared across languages (such as pdfs or zips for example), create an `all_langs` folder and organize it there.
 - Special TOC and landing page data is stored inside the `_data` folder.
 
 {% include info title="Symmetry" content="The language folders and the image folder should all have the exact same folder structure. This makes translation easy." %}
@@ -38,4 +40,5 @@ Inside the `en` folder, items should be organized by permalink.
   |    \- event-daemon.md   # permalink: /shotgun/event-daemon/
   \- toolkit.md             # permalink: /toolkit/
 ```
+
 
