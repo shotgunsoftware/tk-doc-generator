@@ -35,10 +35,10 @@ Use the `figure` include when extended formatting or captioning of an image is n
 ```
 {% endraw  %}
 
-Supported variables include:
+Supported variables:
   - `src`: The path to the image
   - `caption`: An optional image caption.
   - `width`: An optional width that will be appended to the `<img>` element's `style`.
   - `height`: An optional height that will be appended to the `<img>` element's `style`.
   - `style`: An optional value for the `<img>` element's `style`.
-  - `dropshadow`: An optional boolean that disable's the `<img>` element's `box-shadow`.  Default behavior is `true`.
+  - `dropshadow`: An optional boolean that disables the `<img>` element's `box-shadow` when set to `false`.  Default behavior is `true`.
