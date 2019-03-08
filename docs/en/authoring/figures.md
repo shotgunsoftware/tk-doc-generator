@@ -25,13 +25,16 @@ When including images, figures, screenshots and diagrams, follow these guideline
 - Graphics should be functional in style, typically using grayscales only.
 
 ## Captioning Figures
-Use the `image` include when extended formatting or captioning of an image is necessary
-{% include image src="../../images/landing-page/dev_icon.png" caption="An example image." width="100px" %}
+Use the `figure` include when extended formatting or captioning of an image is necessary:
+
+{% include figure src="../../images/landing-page/dev_icon.png" caption="An example figure." width="100px" %}
+
 {% raw  %}
 ```
-{% include image src="../../images/landing-page/dev_icon.png" caption="An example image." width="100px" %}
+{% include figure src="../../images/landing-page/dev_icon.png" caption="An example figure." width="100px" %}
 ```
 {% endraw  %}
+
 Supported variables include:
   - src: The path to the image
   - caption: An optional image caption.  If omitted, the `<figcaption>` element will be omitted.
