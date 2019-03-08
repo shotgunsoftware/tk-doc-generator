@@ -37,7 +37,7 @@ Use the `figure` include when extended formatting or captioning of an image is n
 
 Supported variables include:
   - `src`: The path to the image
-  - `caption`: An optional image caption.  If omitted, the `<figcaption>` element will be omitted.
+  - `caption`: An optional image caption.
   - `width`: An optional width that will be appended to the `<img>` element's `style`.
   - `height`: An optional height that will be appended to the `<img>` element's `style`.
   - `style`: An optional value for the `<img>` element's `style`.
