@@ -35,7 +35,7 @@ Use the `figure` include when extended formatting or captioning of an image is n
 ```
 {% endraw  %}
 
-{% include figure src="../../images/landing-page/dev_icon.png" caption="Testing some more features" height="200px" style="border-color:red;border-style:solid;border-width:1px" dropshadow=false %}
+{% include figure src="../../images/landing-page/dev_icon.png" caption="Testing some more features" height="200px" style="border-color:red;border-style:solid;border-width:1px;" dropshadow=false %}
 
 {% include figure src="../../images/landing-page/dev_icon.png" caption="No dropshadow" dropshadow=false %}
 
