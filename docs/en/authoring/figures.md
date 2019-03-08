@@ -25,16 +25,17 @@ When including images, figures, screenshots and diagrams, follow these guideline
 - Graphics should be functional in style, typically using grayscales only.
 
 ## Captioning Figures
-- Use the `image` include when extended formatting or captioning of an image is necessary
+Use the `image` include when extended formatting or captioning of an image is necessary
+{% include image src="../../images/landing-page/dev_icon.png" caption="An example image." width="100px" %}
+{% raw  %}
 ```
 {% include image src="../../images/landing-page/dev_icon.png" caption="An example image." width="100px" %}
 ```
-{% include image src="../../images/landing-page/dev_icon.png" caption="An example image." width="100px" %}
-
-  Supported variables include:
-    - src: The path to the image
-    - caption: An optional image caption.  If omitted, the `<figcaption>` element will be omitted.
-    - width: An optional width that will be appended to the `<img>` element's `style`.
-    - height: An optional height that will be appended to the `<img>` element's `style`.
-    - style: An optional value for the `<img>` element's `style`.
-    - dropshadow: An optional boolean that disable's the `<img>` element's `box-shadow`.  Default behavior is `true`.
+{% endraw  %}
+Supported variables include:
+  - src: The path to the image
+  - caption: An optional image caption.  If omitted, the `<figcaption>` element will be omitted.
+  - width: An optional width that will be appended to the `<img>` element's `style`.
+  - height: An optional height that will be appended to the `<img>` element's `style`.
+  - style: An optional value for the `<img>` element's `style`.
+  - dropshadow: An optional boolean that disable's the `<img>` element's `box-shadow`.  Default behavior is `true`.
