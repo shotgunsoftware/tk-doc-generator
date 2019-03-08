@@ -30,6 +30,8 @@ Normal markdown content follows...
 That's it - now this page will appear under the url `/example/` on your site and will 
 be formatted as well as including in the search.
 
+{% include info title="Permalink Format" content="Note that the permalink includes a trailing slash, and that this is required." %}
+
 ## Multiple languages
 
 The documentation generator supports multiple languages (i18n) support via 
