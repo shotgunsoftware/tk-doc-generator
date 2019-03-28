@@ -7,10 +7,14 @@ lang: en
 
 # Managing a table of contents
 
-To crate a the table of contents, you need to add two files:
+To modify the table of contents, you need to change two files:
 
 - A `docs/_data/toc.yml` table of contents structure file.
-- A `docs/_data/en/toc_text.yml` file containing localized strings.
+- A `docs/_data/en/toc_text.yml` file containing localized strings. 
+  In this case, the path points at the english strings. The entries 
+  added to this file will normally be translated into additional 
+  languages as a secondary activity. As an example, the japanese
+  version of this document would be `docs/_data/ja/toc_text.yml`.
 
 ## The toc file
 
