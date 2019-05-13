@@ -18,6 +18,7 @@ group :jekyll_plugins do
   gem "jekyll-relative-links"
   gem "jekyll-polyglot"
   gem "jekyll-analytics"
+  gem "jekyll-redirect-from"
 end
 
 
