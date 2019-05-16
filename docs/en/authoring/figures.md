@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Figures and Diagrams
+pagename: authoring-figures
 permalink: /authoring/figures/
 lang: en
 ---

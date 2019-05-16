@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Introduction
+pagename: authoring
 permalink: /authoring/
 lang: en
 ---
@@ -19,6 +20,7 @@ header:
 ---
 layout: default
 title: Example title
+pagename: example
 permalink: /example/
 lang: en
 ---
@@ -45,6 +47,7 @@ You can now author all your content in the default language, specified by the `d
 ---
 layout: default
 title: Example title
+pagename: example
 permalink: /example/
 lang: en
 ---
@@ -60,6 +63,7 @@ then your Swedish translation should look like this:
 ---
 layout: default
 title: Exempel-titel
+pagename: example
 permalink: /example/
 lang: sv
 ---

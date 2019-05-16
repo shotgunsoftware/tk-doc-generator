@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Content Structure
+pagename: toc-file-structure
 permalink: /authoring/toc/file-structure/
 lang: en
 ---

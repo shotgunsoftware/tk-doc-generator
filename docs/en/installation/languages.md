@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Configuring Languages
+pagename: installation-languages
 permalink: /installation/languages/
 lang: en
 ---

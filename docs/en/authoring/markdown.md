@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Markdown syntax
+pagename: authoring-markdown
 permalink: /authoring/markdown/
 lang: en
 ---
@@ -18,13 +19,17 @@ Every page that should be processed by the system needs to have a header on the 
 ---
 layout: default
 title: My Wonderful Page
-permalink: /my-wonderful-page/
+pagename: my-wonderful-page
 lang: en
 ---
 ```
 
-{% include info title="Permalink syntax" content="Make sure to add the final slash to the permalink." %}
+### Pagenames
 
+The slug key `pagename` is used to provide a unique name for each page. This is used
+when processing the table of contents to find the page each toc entry corresponds to. For this to work properly, pagenames must be unique.
+
+The `lang: en` defines what language the page has been written in and should follow [i18n language codes](https://developer.chrome.com/webstore/i18n).
 
 ### Language Support
 

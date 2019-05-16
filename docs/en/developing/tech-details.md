@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Technical Details
+pagename: developing-tech-details
 permalink: /developing/tech-details/
 lang: en
 ---

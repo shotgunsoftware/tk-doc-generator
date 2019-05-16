@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Custom Landing Page
+pagename: authoring-landing-page
 permalink: /authoring/landing-page/
 lang: en
 ---

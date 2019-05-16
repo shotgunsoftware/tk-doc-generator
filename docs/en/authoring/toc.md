@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Table of contents
+pagename: authoring-toc
 permalink: /authoring/toc/
 lang: en
 ---
@@ -25,32 +26,34 @@ For example, it may look like this:
 ```yaml
 - caption: authoring
   children:
-  - page: /authoring/
-  - page: /authoring/markdown/
+  - page: authoring
+  - page: authoring-markdown
     children:
     - text: markdown-cheatsheet
       url: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-  - page: /authoring/figures/
-  - page: /authoring/toc/
+  - page: authoring-figures
+  - page: authoring-toc
     children:
-    - page: /authoring/toc/file-structure/
-  - page: /authoring/landing-page/
-  - page: /authoring/preview/
+    - page: toc-file-structure
+      children:
+      - page: toc-nesting
+  - page: authoring-landing-page
+  - page: authoring-preview
 
 - caption: setting-up
   children:
-  - page: /installation/integrating/
-  - page: /installation/languages/
+  - page: installation-integrating
+  - page: installation-languages
 
 - caption: developing
   children:
-  - page: /developing/tech-details/
+  - page: developing-tech-details
 ```
 
 - The `caption` nodes will be displayed as blue, nonclickable headings in the TOC.
 - Each `caption` node has a list of children in a `children` key.
 - Items in this `children` list can either be other documentation pages or extenrnal links.
-- Documentation pages are referenced by their permalink, e.g. `page: /authoring/markdown/`
+- Documentation pages are referenced by their pagename, e.g. `page: authoring-markdown`
 - External links have a `text` and a `url` key to define where they point.
 
 ## Translation
