@@ -14,6 +14,8 @@ class PageUIDCollisionException < StandardError
 end
 
 module Jekyll
+
+    # Modify Jekyll's Page class to expose URL for PermalinkRewriter.
     class Page
         # Assignment method to expose URL so that we can modify page URLs from
         # our Generator.
