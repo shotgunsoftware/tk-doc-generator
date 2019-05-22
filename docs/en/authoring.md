@@ -2,7 +2,6 @@
 layout: default
 title: Introduction
 pagename: authoring
-permalink: /authoring/
 lang: en
 ---
 
@@ -21,7 +20,6 @@ header:
 layout: default
 title: Example title
 pagename: example
-permalink: /example/
 lang: en
 ---
 
@@ -29,10 +27,8 @@ lang: en
 Normal markdown content follows...
 ```
 
-That's it - now this page will appear under the url `/example/` on your site and will 
+That's it - now this page can be added to your site's table of contents, and will 
 be formatted as well as including in the search.
-
-{% include info title="Permalink Format" content="Note that the permalink includes a trailing slash, and that this is required." %}
 
 ## Multiple languages
 
@@ -48,7 +44,6 @@ You can now author all your content in the default language, specified by the `d
 layout: default
 title: Example title
 pagename: example
-permalink: /example/
 lang: en
 ---
 
@@ -64,7 +59,6 @@ then your Swedish translation should look like this:
 layout: default
 title: Exempel-titel
 pagename: example
-permalink: /example/
 lang: sv
 ---
 
@@ -73,7 +67,7 @@ lang: sv
 Normalt markdown-innehåll följer...
 ```
 
-{% include info title="Common Fields" content="Note how the permalink needs to be the same for both pages and how we have added lang: sv in order to specify that this is the swedish version." %}
+{% include info title="Common Fields" content="Note how the pagename needs to be the same for both pages and how we have added lang: sv in order to specify that this is the swedish version." %}
 
 If a language is missing a page, it will use the `default_lang` version of that page.
 

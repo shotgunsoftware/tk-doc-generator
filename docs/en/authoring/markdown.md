@@ -2,7 +2,6 @@
 layout: default
 title: Markdown syntax
 pagename: authoring-markdown
-permalink: /authoring/markdown/
 lang: en
 ---
 
@@ -26,10 +25,11 @@ lang: en
 
 ### Pagenames
 
-The slug key `pagename` is used to provide a unique name for each page. This is used
-when processing the table of contents to find the page each toc entry corresponds to. For this to work properly, pagenames must be unique.
+The slug key `pagename` is used to provide a unique name for each page. This pagename is used when processing the table of contents to find the page each entry corresponds to. Additionally, the pagename is used when generating each page's URL UID.
 
-The `lang: en` defines what language the page has been written in and should follow [i18n language codes](https://developer.chrome.com/webstore/i18n).
+A page's `pagename` is only ever used internally, and does not necessarily need to make sense to an end-user.  Instead it should be descriptive to the documentation maintainer(s).
+
+{% include warning title="Pagenames should be unique and static" content="Because the pagename is used as an identifier for the page in the table of contents, pagenames must be unique.  Additionally, since the pagename is used to generate the page's UID, changing the pagename will change the UID and in turn the URL, meaning previously distributed or bookmarked links will no longer work.  For this reason, it is not advisable to change a pagename after the page has gone live." %}
 
 ### Language Support
 

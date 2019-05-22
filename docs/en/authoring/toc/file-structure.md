@@ -2,13 +2,12 @@
 layout: default
 title: Content Structure
 pagename: toc-file-structure
-permalink: /authoring/toc/file-structure/
 lang: en
 ---
 
 # How to organize markdown files on disk
 
-Markdown files should be organized by language and then by their permalink.
+Markdown files should be organized by language and then by their position in the table of contents.
 
 The top folder structure should always be the language:
 
@@ -31,15 +30,15 @@ The top folder structure should always be the language:
 
 {% include info title="Symmetry" content="The language folders and the image folder should all have the exact same folder structure. This makes translation easy." %}
 
-Inside the `en` folder, items should be organized by permalink. 
+Inside the `en` folder, items should be organized as they are in the table of contents.
 
 ```
 /root-folder
-  |- index.md               # permalink: /
-  |- shotgun.md             # permalink: /shotgun/
+  |- index.md
+  |- shotgun.md
   |- shotgun
-  |    \- event-daemon.md   # permalink: /shotgun/event-daemon/
-  \- toolkit.md             # permalink: /toolkit/
+  |    \- event-daemon.md
+  \- toolkit.md
 ```
 
 

@@ -2,7 +2,6 @@
 layout: default
 title: Integrating the Doc Generator
 pagename: installation-integrating
-permalink: /installation/integrating/
 lang: en
 ---
 

@@ -19,6 +19,7 @@
       - page: toc-nesting
   - page: authoring-landing-page
   - page: authoring-preview
+  - page: authoring-page-urls
 
 - caption: setting-up
   children:

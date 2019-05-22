@@ -2,7 +2,6 @@
 layout: default
 title: Table of contents
 pagename: authoring-toc
-permalink: /authoring/toc/
 lang: en
 ---
 
