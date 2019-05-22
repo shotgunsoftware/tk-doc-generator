@@ -26,7 +26,6 @@ plugins:
   - jekyll-polyglot
   # analytics
   - jekyll-analytics
-  - jekyll-redirect-from
 
 # default i18n configuration
 languages: ["en"]
