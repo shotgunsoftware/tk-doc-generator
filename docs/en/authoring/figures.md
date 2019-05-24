@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Figures and Diagrams
-permalink: /authoring/figures/
+pagename: authoring-figures
 lang: en
 ---
 

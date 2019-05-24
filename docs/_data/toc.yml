@@ -6,28 +6,29 @@
 
 - caption: authoring
   children:
-  - page: /authoring/
-  - page: /authoring/markdown/
+  - page: authoring
+  - page: authoring-markdown
     children:
     - text: markdown-cheatsheet
       url: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-  - page: /authoring/figures/
-  - page: /authoring/toc/
+  - page: authoring-figures
+  - page: authoring-toc
     children:
-    - page: /authoring/toc/file-structure/
+    - page: toc-file-structure
       children:
-      - page: /authoring/toc/file-structure/nesting/
-  - page: /authoring/landing-page/
-  - page: /authoring/preview/
+      - page: toc-nesting
+  - page: authoring-landing-page
+  - page: authoring-preview
+  - page: authoring-page-urls
 
 - caption: setting-up
   children:
-  - page: /installation/integrating/
-  - page: /installation/languages/
+  - page: installation-integrating
+  - page: installation-languages
 
 - caption: developing
   children:
-  - page: /developing/tech-details/
+  - page: developing-tech-details
 
 
 

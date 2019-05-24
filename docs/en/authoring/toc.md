@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Table of contents
-permalink: /authoring/toc/
+pagename: authoring-toc
 lang: en
 ---
 
@@ -16,6 +16,8 @@ To modify the table of contents, you need to change two files:
   languages as a secondary activity. As an example, the japanese
   version of this document would be `docs/_data/ja/toc_text.yml`.
 
+{% include info title="Moving and renaming pages" content="The location of a page in the table of contents, and the page's title ([specified in the slug](../authoring.md)) determine the page's location and name.  Renaming or moving a page is accomplished by changing these values, and not it's pagename, as the pagename is only used internally." %}
+
 ## The toc file
 
 The `docs/_data/toc.yml` defines the structure of the table of contents.
@@ -25,32 +27,34 @@ For example, it may look like this:
 ```yaml
 - caption: authoring
   children:
-  - page: /authoring/
-  - page: /authoring/markdown/
+  - page: authoring
+  - page: authoring-markdown
     children:
     - text: markdown-cheatsheet
       url: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-  - page: /authoring/figures/
-  - page: /authoring/toc/
+  - page: authoring-figures
+  - page: authoring-toc
     children:
-    - page: /authoring/toc/file-structure/
-  - page: /authoring/landing-page/
-  - page: /authoring/preview/
+    - page: toc-file-structure
+      children:
+      - page: toc-nesting
+  - page: authoring-landing-page
+  - page: authoring-preview
 
 - caption: setting-up
   children:
-  - page: /installation/integrating/
-  - page: /installation/languages/
+  - page: installation-integrating
+  - page: installation-languages
 
 - caption: developing
   children:
-  - page: /developing/tech-details/
+  - page: developing-tech-details
 ```
 
 - The `caption` nodes will be displayed as blue, nonclickable headings in the TOC.
 - Each `caption` node has a list of children in a `children` key.
 - Items in this `children` list can either be other documentation pages or extenrnal links.
-- Documentation pages are referenced by their permalink, e.g. `page: /authoring/markdown/`
+- Documentation pages are referenced by their pagename, e.g. `page: authoring-markdown`
 - External links have a `text` and a `url` key to define where they point.
 
 ## Translation

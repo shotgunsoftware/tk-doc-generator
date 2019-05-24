@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Custom Landing Page
-permalink: /authoring/landing-page/
+pagename: authoring-landing-page
 lang: en
 ---
 
@@ -9,7 +9,7 @@ lang: en
 
 The documenation system supports the notion of a custom landing page. The page consists of several different files:
 
-- A markdown file (typically `index.md`) with its `permalink` setting set to `/`.
+- A markdown file (typically `index.md`) with its `pagename` setting set to `index`.
   This file should be using the `landing_page` layout. For an example, see
   [the tk-doc-generator landing page](https://github.com/shotgunsoftware/tk-doc-generator/blob/master/docs/index.md).
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Technical Details
-permalink: /developing/tech-details/
+pagename: developing-tech-details
 lang: en
 ---
 

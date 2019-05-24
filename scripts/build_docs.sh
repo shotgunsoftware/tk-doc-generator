@@ -72,6 +72,10 @@ mkdir -p ${TMP_BUILD_FOLDER}
 echo "Copying source files into '${TMP_FOLDER}'..."
 cp -r ${SOURCE}/* ${TMP_BUILD_FOLDER}
 
+echo "Copying plugins into '${TMP_FOLDER}/_plugins'..."
+mkdir -p ${TMP_BUILD_FOLDER}/_plugins
+cp -nr ${THIS_DIR}/../jekyll/_plugins/* ${TMP_BUILD_FOLDER}/_plugins
+
 echo "Running Sphinx RST -> Markdown build process..."
 python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 

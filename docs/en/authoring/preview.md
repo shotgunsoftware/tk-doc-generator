@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Local Preview
-permalink: /authoring/pereview/
+pagename: authoring-preview
 lang: en
 ---
 

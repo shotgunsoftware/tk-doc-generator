@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuring Languages
-permalink: /installation/languages/
+pagename: installation-languages
 lang: en
 ---
 

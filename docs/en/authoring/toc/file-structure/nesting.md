@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Nesting
-permalink: /authoring/toc/file-structure/nesting/
+pagename: toc-nesting
 lang: en
 ---
 
