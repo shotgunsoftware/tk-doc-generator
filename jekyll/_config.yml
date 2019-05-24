@@ -43,4 +43,6 @@ exclude: ["tk-doc-generator"]
 #    id: UA-123-456          # Required - replace with your tracking id
 #    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
+# Default permalinks will use the generated UID.  For pages where the UID
+# should not be used, permalink can be set in the page slug.
 permalink: /:uid/

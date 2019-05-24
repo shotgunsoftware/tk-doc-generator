@@ -16,6 +16,8 @@ To modify the table of contents, you need to change two files:
   languages as a secondary activity. As an example, the japanese
   version of this document would be `docs/_data/ja/toc_text.yml`.
 
+{% include info title="Moving and renaming pages" content="The location of a page in the table of contents, and the page's title ([specified in the slug](../authoring.md)) determine the page's location and name.  Renaming or moving a page is accomplished by changing these values, and not it's pagename, as the pagename is only used internally." %}
+
 ## The toc file
 
 The `docs/_data/toc.yml` defines the structure of the table of contents.

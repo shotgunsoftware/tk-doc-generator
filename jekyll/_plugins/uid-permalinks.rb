@@ -6,9 +6,13 @@
 #
 
 # Error raised when two page UIDs collide, meaning two different pages will
-# have the same URL.
+# have the same URL.  This can happen when two pages have the same pagename, or
+# (in a very unlikely case) when two hashes generator for different pagenames
+# are the same.
 class PageUIDCollisionException < StandardError
-  def initialize(msg="Page UID hashes collided.")
+  def initialize(msg="Page UID hashes collided.  This can be caused by "\
+    "duplicate pagenames, or (very very rarely) by two pagenames hashing "\
+    "to the same value.")
     super(msg)
   end
 end
