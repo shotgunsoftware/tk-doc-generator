@@ -12,10 +12,8 @@ python:
 
 env:
   global:
-    - DOC_URL=https://developer.shotgunsoftware.com
+    - DOC_URL=https://wwfxuk.github.io
     - DOC_PATH=/tk-doc-generator
-    - S3_BUCKET=sg-devdocs
-    - S3_WEB_URL=http://sg-devdocs.s3-website-us-east-1.amazonaws.com
 
 cache:
   pip: true
@@ -54,4 +52,4 @@ deploy:
   github-token: $GITHUB_TOKEN
   on:
     # only do this when on the master branch
-    branch: master
+    branch: fix-build-docs-rwX-yum-clean-all
