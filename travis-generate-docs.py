@@ -126,6 +126,11 @@ def main():
 
     # first figure out i we are on master or in a PR.
     if current_branch != "master" or inside_pr:
+        # Defaults: No S3, dummy domain url and empty sub-folder path
+        s3_bucket = None
+        target_url = "https://dummy.url.com"
+        target_url_path = "/"
+
         # we are in a PR.
         log.info("Inside a pull request.")
 
@@ -142,11 +147,16 @@ def main():
         else:
             log.warning("No S3_BUCKET and S3_WEB_URL detected in environment. "
                         "No S3 preview will be generated")
-            s3_bucket = None
-            # enter dummy paths so we can at least build
-            # the docs to check for errors
-            target_url = "https://dummy.url.com"
-            target_url_path = "/"
+
+        # Use DOC_* for target
+        if "DOC_URL" in os.environ and "DOC_PATH" in os.environ:
+            log.info("Using DOC_URL/PATH.")
+            target_url = os.environ["DOC_URL"]
+            target_url_path = os.environ["DOC_PATH"]
+        else:
+            log.warning("Using dummy paths so we can at least build the docs "
+                        "to check for errors")
+
 
         target_full_url = "{url}{path}/index.html".format(url=target_url, path=target_url_path)
 
