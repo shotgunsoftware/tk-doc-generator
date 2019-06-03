@@ -97,6 +97,8 @@ else
     --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
 fi
 
+# Local preview_docs.sh (Docker): allow non-root users to modify generated docs
+chmod -R 'a+rwX' "${OUTPUT}"
 echo "------------------------------------------------------"
 echo "Build completed."
 echo "------------------------------------------------------"
