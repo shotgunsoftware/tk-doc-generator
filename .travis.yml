@@ -14,7 +14,6 @@ env:
   global:
     - DOC_URL=https://wwfxuk.github.io
     - DOC_PATH=/tk-doc-generator
-    # We don't have S3, seems like it is optional anyways
 
 cache:
   pip: true
@@ -53,4 +52,4 @@ deploy:
   github-token: $GITHUB_TOKEN
   on:
     # only do this when on the master branch
-    branch: fix-build-docs-rwX-yum-clean-all
+    branch: master

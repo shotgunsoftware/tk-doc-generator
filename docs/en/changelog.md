@@ -16,18 +16,10 @@ See also the [GitHub Releases page][releases]
 
 Added this change log as well as minor fixes:
 
-## .travis.yml
-
-- Changed to WWFX UK `DOC_URL`
-
-## Dockerfile
-
-- Fixed `yum clean all` from being part of the `yum install` arguments
-
-## build_docs.sh
-
-- Fixed permissions of generated docs from just `root` only
-
+- `.travis.yml`: Changed to WWFX UK `DOC_URL`
+- `Dockerfile`: Fixed `yum clean all` from being part of the `yum install` arguments
+- `build_docs.sh`: Fixed permissions of generated docs from just `root` only
+- `travis-generate-docs.py`: Fallback to `DOC_*` before using dummy URL.
 
 # v1.0.0
 
