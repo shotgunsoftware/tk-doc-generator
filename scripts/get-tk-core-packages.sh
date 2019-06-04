@@ -30,7 +30,7 @@ Example:
 EOF
 }
 
-if [ $# -ne 1 -o ]
+if [ $# -ne 1 ]
 then
     echo 'ERROR: Please provide a folder to download/install into!'
     echo

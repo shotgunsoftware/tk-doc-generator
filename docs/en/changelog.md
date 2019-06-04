@@ -12,7 +12,7 @@ See also the [GitHub Releases page][releases]
 
 [releases]: https://github.com/shotgunsoftware/tk-doc-generator/releases
 
-# v1.x.x (changes from v1.0.0+wwfx.0.2.0 to v1.0.0+wwfx.0.3.0)
+# v1.x.x (changes from v1.0.0+wwfx.0.2.0 to v1.0.0+wwfx.0.3.1)
 
 Functional improvements and fixes from testing
 `tk-doc-generator` (locally using `preview_docs.sh` and on `travis.ci`)
@@ -33,8 +33,11 @@ branch/PR. See also `tk-katana`'s
       `docker` version shipped with CentOS 7.
     - Will not re-build Docker image if `tk-doc-generator` image exists.
         - Force rebuild using `preview_docs.sh --rebuild`.
+    - Can now be run anywhere, including within `tk-doc-generator`
 
-- `build_docs.sh`: Fixed configurations using absolute paths.
+- `build_docs.sh`:
+    - Fixed configurations using absolute paths.
+    - Fixed inaccurate echo statements
 - `Gemfile*`: Using WWFX `just-the-docs` with
   [new external links test](https://github.com/shotgunsoftware/just-the-docs/pull/9)
 

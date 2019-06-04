@@ -55,14 +55,13 @@ esac
 
 # Setup useful directory variables for current script's folder/parent folder
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-PARENT_DIR="$( cd ${THIS_DIR}/.. >/dev/null 2>&1 && pwd )"
 
 
 # Build if image does not exist OR first argument is --rebuild
 IMAGE_TAG="${IMAGE_TAG:-tk-doc-generator}"
 if [ -z "$(docker images --quiet ${IMAGE_TAG})" -o "${ARG1}" == "--rebuild" ]
 then
-    docker build --tag "${IMAGE_TAG}" ${PARENT_DIR}/tk-doc-generator
+    docker build --tag "${IMAGE_TAG}" ${THIS_DIR}
 else
     echo "'${IMAGE_TAG}' docker image already built"
     echo "To force a re-build, try running this script with --rebuild flag"
@@ -74,9 +73,9 @@ fi
 MOUNT_TO="${MOUNT_TO:-/app}"
 if ( docker run --help | grep --quiet -- --mount )
 then
-    MOUNT_FLAGS='--mount '"type=bind,source=${PARENT_DIR},target=${MOUNT_TO}"
+    MOUNT_FLAGS='--mount '"type=bind,source=$(pwd),target=${MOUNT_TO}"
 else
-    MOUNT_FLAGS='-v '"${PARENT_DIR}:${MOUNT_TO}"
+    MOUNT_FLAGS='-v '"$(pwd):${MOUNT_TO}"
 fi
 
 
@@ -85,10 +84,8 @@ docker run --rm \
     ${MOUNT_FLAGS} \
     ${IMAGE_TAG} \
     --url="http://localhost" \
-    --url-path="${PARENT_DIR}/_build" \
+    --url-path="$(pwd)/_build" \
     --source="${MOUNT_TO}/docs" \
     --output="${MOUNT_TO}/_build"
 
-
-echo "Documentation built in ${PARENT_DIR}/_build/index.html"
-echo "Be sure to run 'docker container prune' to remove finished containers."
+echo "Documentation built. Open in web-browser: $(pwd)/_build/index.html"

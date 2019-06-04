@@ -70,13 +70,12 @@ echo "Cleaning out final build location '${OUTPUT}'..."
 rm -rf ${OUTPUT}
 
 echo "Creating build location '${TMP_BUILD_FOLDER}'..."
-mkdir -p ${TMP_BUILD_FOLDER}
+mkdir -p ${TMP_BUILD_FOLDER}/_plugins
 
-echo "Copying source files into '${TMP_FOLDER}'..."
+echo "Copying source files into '${TMP_BUILD_FOLDER}'..."
 cp -r ${SOURCE}/* ${TMP_BUILD_FOLDER}
 
-echo "Copying plugins into '${TMP_FOLDER}/_plugins'..."
-mkdir -p ${TMP_BUILD_FOLDER}/_plugins
+echo "Copying plugins into '${TMP_BUILD_FOLDER}/_plugins'..."
 cp -nr ${TK_DOC_GEN_SRC}/jekyll/_plugins/* ${TMP_BUILD_FOLDER}/_plugins
 
 echo "Running Sphinx RST -> Markdown build process..."
