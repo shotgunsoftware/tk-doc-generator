@@ -10,9 +10,9 @@ Change Log/History
 
 See also the [GitHub Releases page][releases]
 
-[releases]: https://github.com/wwfxuk/tk-doc-generator/releases
+[releases]: https://github.com/shotgunsoftware/tk-doc-generator/releases
 
-# v1.0.0+wwfx.0.3.0
+# v1.x.x (changes from v1.0.0+wwfx.0.2.0 to v1.0.0+wwfx.0.3.0)
 
 Functional improvements and fixes from testing
 `tk-doc-generator` (locally using `preview_docs.sh` and on `travis.ci`)
@@ -38,17 +38,7 @@ branch/PR. See also `tk-katana`'s
 - `Gemfile*`: Using WWFX `just-the-docs` with
   [new external links test](https://github.com/shotgunsoftware/just-the-docs/pull/9)
 
-# v1.0.0+wwfx.0.2.0
-
-- Changed all/most docs links to WWFX UK versions.
-- Altered shield badges to use `docs` label:
-    [![Doc Generator](https://img.shields.io/badge/docs-WWFX%20SG%20Doc%20Generator-blue.svg)](http://github.com/wwfxuk/tk-doc-generator)
-
-    ```
-    [![Doc Generator](https://img.shields.io/badge/docs-WWFX%20SG%20Doc%20Generator-blue.svg)](http://github.com/wwfxuk/tk-doc-generator)
-    ```
-
-# v1.0.0+wwfx.0.1.0
+# v1.x.x (v1.0.0+wwfx.0.1.0)
 
 Added this change log as well as minor fixes:
 
