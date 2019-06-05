@@ -15,7 +15,7 @@ gem "just-the-docs", :git => 'https://github.com/shotgunsoftware/just-the-docs.g
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
-  gem "jekyll-relative-links"
+  gem "jekyll-relative-links", :git => 'https://github.com/shotgunsoftware/jekyll-relative-links.git'
   gem "jekyll-polyglot"
   gem "jekyll-analytics"
 end
