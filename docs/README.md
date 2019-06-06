@@ -9,7 +9,7 @@ The following folders exist:
 - `ja` - Japanese translated content.
 - `ko` - Korean translated content.
 - `zh_CN` - Chinese translated content.
-- `images` - All images should be located in the images subfolder structure.
+- `en\images`, `ja\images`, ... - All images should be located in images folders, at the same level as the pages those images are used in.  There may be many `images` directories within each language directory, as needed.
 - `_data/en`, `_data/ja`, ... - Site metadata (e.g. landing page content), organized by language. 
 
 ## Content authoring guide
