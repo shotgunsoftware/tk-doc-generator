@@ -82,4 +82,7 @@ ENV PATH=${PATH}:/usr/local/src/scripts
 RUN get-tk-core-packages.sh /usr/local/lib64/python
 ENV PYTHONPATH=${PYTHONPATH}:/usr/local/lib64/python
 
+RUN mkdir -vp _doc_generator_tmp/markdown_src
+VOLUME [ "$(pwd)/_doc_generator_tmp/markdown_src" ]
+
 ENTRYPOINT [ "serve_docs.sh" ]

@@ -33,46 +33,25 @@
 # exit on error
 set -eu -o pipefail
 
+# Set defaults if no env vars detected
 SOURCE=${SOURCE:-$(pwd)}
 OUTPUT=${OUTPUT:-$(pwd)/_site}
 EXPOSED_PORT=${EXPOSED_PORT:-4000}
 URLPATH=${URLPATH:-/}
-echo "---------------------------------------------------"
-echo "Shotgun Ecosystem Documentation Build Process"
-echo "---------------------------------------------------"
-echo "          Source: ${SOURCE}"
-echo "          Output: ${OUTPUT}"
-echo " URL (localhost): $(hostname -I):${EXPOSED_PORT}/${URLPATH}"
-echo "---------------------------------------------------"
 
 # contains Gemfile, jekyll, etc
 TK_DOC_GEN_SRC="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. >/dev/null 2>&1 && pwd )"
 OUR_REPO_ROOT="$(readlink -m ${SOURCE}/..)"  # Typically user's project root folder
 
-TMP_FOLDER="${TK_DOC_GEN_SRC}/_doc_generator_tmp"
-TMP_BUILD_FOLDER="${TMP_FOLDER}/markdown_src"
-
-echo
-echo "Cleaning out and creating new internal build location '${TMP_FOLDER}'..."
-rm -rf ${TMP_FOLDER}
-mkdir -p ${TMP_FOLDER}
-
 echo "Cleaning out final build location '${OUTPUT}'..."
 rm -rf ${OUTPUT}
 
-echo "Synlinking source files into '${TMP_BUILD_FOLDER}'..."
-# In case build_sphinx.py generates additional junk that's not part of SOURCE/*
-for SRC_PATH in ${SOURCE}/*
-do
-    ln -rsf ${SRC_PATH} ${TMP_BUILD_FOLDER}
-done
-
 echo "Running Sphinx RST -> Markdown build process..."
-build_sphinx.py ${TMP_BUILD_FOLDER}
+build_sphinx.py ${SOURCE}
 
 # Setup additional plugin paths
 PLUGINS="${TK_DOC_GEN_SRC}/jekyll/_plugins"
-EXTRA_PLUGIN=${TMP_BUILD_FOLDER}/_plugins
+EXTRA_PLUGIN=${SOURCE}/_plugins
 if [ -d "${EXTRA_PLUGIN}" ]
 then
     echo "Using additional plugins from ${EXTRA_PLUGIN}..."
@@ -90,43 +69,23 @@ fi
 
 echo "Running Jekyll to generate html from markdown..."
 echo "---------------------------------------------------"
+echo "          Source: ${SOURCE}"
+echo "          Output: ${OUTPUT}"
+echo "         Plugins: ${PLUGINS}"
+echo "  Configurations: ${CONFIGS}"
+echo " URL (localhost): localhost:${EXPOSED_PORT}${URLPATH}"
+echo "---------------------------------------------------"
 umask 0000
+echo "$(hostname -I)localhost" >> /etc/hosts
+
+# Auto-regeneration will be disabled if running server detached.
+    # --verbose \
 BUNDLE_GEMFILE=${TK_DOC_GEN_SRC}/Gemfile JEKYLL_ENV=production \
-    # --detach \
 bundle exec jekyll serve \
-    --detach \
     --baseurl "${URLPATH}" \
-    --host $(hostname -I) --port "${EXPOSED_PORT}" \
+    --host localhost --port "${EXPOSED_PORT}" \
     --trace \
     --config "${CONFIGS}" \
     --plugins "${PLUGINS}" \
-    --source "${TMP_BUILD_FOLDER}" \
+    --source "${SOURCE}" \
     --destination "${OUTPUT}"
-
-# Setup URLPATH for localhost formatting ("docker logs" strips empty lines)
-URLPATH="${URLPATH#/}"
-cat << EOF
-###########################################################################
-#
-#  Documentation built. Open in web-browser:
-#  http://localhost:${EXPOSED_PORT}/${URLPATH}${URLPATH:+/}
-#
-###########################################################################
-|
-|>> This terminal is currently viewing the live log.
-|   CTRL+C to exit viewing this log.
-|
-|>> You may also want to run this every now and then if you have rst files:
-|   docker exec $(hostname) build_sphinx.py ${TMP_BUILD_FOLDER}
-|
----------------------------------------------------------------------------
-|
-|   To ACTUALLY stop the jekyll server running in Docker:
-|   docker stop $(hostname)
-|
----------------------------------------------------------------------------
-EOF
-while pgrep -f jekyll &> /dev/null
-do
-    sleep 2s
-done

@@ -93,8 +93,10 @@ URL_PATH="${1:-$(
 
 if (echo "${URL_PATH}" | grep -qP '^[a-zA-Z0-9][a-zA-Z0-9_.-]*$')
 then
-    CONTAINER_NAME="${URL_PATH}-${EXPOSED_PORT}"
-    until docker run --rm -d \
+    while true
+    do
+        CONTAINER_NAME="${URL_PATH}-${EXPOSED_PORT}"
+        CONTAINER_ID=$(docker run --rm -d \
             --hostname="${CONTAINER_NAME}" \
             --name="${CONTAINER_NAME}" \
             -p "${EXPOSED_PORT}:${EXPOSED_PORT}" \
@@ -103,10 +105,9 @@ then
             -e SOURCE="${MOUNT_TO}/docs" \
             -e OUTPUT="${MOUNT_TO}/_build" \
             ${MOUNT_FLAGS} \
-            ${IMAGE_TAG}
-    do
-        EXPOSED_PORT="$(( EXPOSED_PORT + 1 ))"
-        CONTAINER_NAME="${URL_PATH}-${EXPOSED_PORT}"
+            ${IMAGE_TAG}) \
+        && break \
+        || EXPOSED_PORT="$(( EXPOSED_PORT + 1 ))"
     done
 else
     echo "Invalid URL_PATH to host as: '${URL_PATH}'"
@@ -133,7 +134,6 @@ else
         CONTAINER_ID=$(docker run --rm -d \
                 -p "${EXPOSED_PORT}:${EXPOSED_PORT}" \
                 -e EXPOSED_PORT="${EXPOSED_PORT}" \
-                -e URLPATH="/" \
                 -e SOURCE="${MOUNT_TO}/docs" \
                 -e OUTPUT="${MOUNT_TO}/_build" \
                 ${MOUNT_FLAGS} \
@@ -143,6 +143,36 @@ else
     done
     CONTAINER_NAME=$(docker ps -f id=${CONTAINER_ID} --format '{{.Names}}')
 fi
+echo "Waiting for container to startup: ${CONTAINER_NAME}"
+echo
+echo
 
-# Directly calling log follow here to show any errors in serve_docs.sh
-docker logs --follow ${CONTAINER_NAME}
+# To prevent error in "docker logs" writing out blank logs file
+# we use a buffer file so: docker logs -> buffer -> log file
+TMP_LOG=$(mktemp)
+TMP_LOG_BUFFER=$(mktemp)
+while
+    docker inspect ${CONTAINER_ID} &> /dev/null \
+    && docker logs ${CONTAINER_ID} > ${TMP_LOG_BUFFER}
+do
+    cp -f ${TMP_LOG_BUFFER} ${TMP_LOG}
+    grep -q "Server running... press ctrl-c to stop." ${TMP_LOG} && break
+done
+
+# Output logs so users can see if it failed during startup
+cat ${TMP_LOG}
+
+# Output "Open in web-browser" if the serve script actually succeeded
+docker inspect ${CONTAINER_ID} &> /dev/null && cat << EOF
+###############################################################################
+
+      Documentation built. Open in web-browser:
+
+  http://localhost:${EXPOSED_PORT}/${URL_PATH}${URL_PATH:+/}
+
+         VIEW logs: docker logs -f ${CONTAINER_NAME}
+CONVERT sphinx rst: docker exec ${CONTAINER_NAME} build_sphinx.py ${MOUNT_TO}/docs
+  CHECK if running: docker ps --filter name=${CONTAINER_NAME}
+    STOP container: docker stop ${CONTAINER_NAME}
+
+EOF
