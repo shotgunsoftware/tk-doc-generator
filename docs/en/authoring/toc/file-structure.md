@@ -26,9 +26,7 @@ The top folder structure should always be the language:
 - If you have content that is shared across languages (such as pdfs or zips for example), create an `all_langs` folder and organize it there.
 - Special TOC and landing page data is stored inside the `_data` folder.
 
-{% include info title="Symmetry" content="The language folders and the image folder should all have the exact same folder structure. This makes translation easy." %}
-
-Inside the language folder (e.g.  `en`), items should be organized as they are in the table of contents. Images should be stored in an `images` folder at the same level as the page they are used by.  If mulitple pages at that level use images, you may organize the images folder with subdirectories for each page.
+Inside the language folder (e.g.  `en`), items should be organized as they are in the table of contents. Images should be stored in an `images` folder at the same level as the page they are used by.  If mulitple pages at that level use images, you should organize the images folder with subdirectories for each page.
 
 ```
 /root-folder
