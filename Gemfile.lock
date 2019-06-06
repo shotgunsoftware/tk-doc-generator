@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/shotgunsoftware/jekyll-relative-links.git
-  revision: a49f14c10af8181a763026b3f4d7ccafe3622609
+  revision: 1eec0a697826d6e4af57ca526469272a4ee6d07d
   specs:
     jekyll-relative-links (0.6.0)
       jekyll (~> 3.3)
