@@ -124,27 +124,30 @@ def main():
     current_branch = os.environ.get("TRAVIS_BRANCH")
     inside_pr = os.environ.get("TRAVIS_PULL_REQUEST") != "false"
 
-    # first figure out i we are on master or in a PR.
+    # first figure out if we are on master or in a PR.
     if current_branch != "master" or inside_pr:
-        # we are in a PR.
-        log.info("Inside a pull request.")
+        log.info("Inside a pull request (or not master branch).")
 
-        # see if we have access to an AWS bucket
-        if "S3_BUCKET" in os.environ and "S3_WEB_URL" in os.environ:
+        # See if we have access to an AWS bucket
+        s3_bucket = os.getenv("S3_BUCKET", default=None)
+        target_url = os.getenv("S3_WEB_URL", default=None)
+        if s3_bucket and target_url:
             log.info("Detected AWS S3 bucket for preview workflow.")
-
-            s3_bucket = os.environ["S3_BUCKET"]
-            target_url = os.environ["S3_WEB_URL"]
-            target_url_path = "/tk-doc-generator/{commit}".format(
-                commit=os.environ["TRAVIS_COMMIT"]
-            )
-
+            target_url_path = "/tk-doc-generator/{env[TRAVIS_COMMIT]}"
+            target_url_path = target_url_path.format(env=os.environ)
         else:
             log.warning("No S3_BUCKET and S3_WEB_URL detected in environment. "
                         "No S3 preview will be generated")
-            s3_bucket = None
-            # enter dummy paths so we can at least build
-            # the docs to check for errors
+
+        # Then try use DOC_* for target
+        target_url = os.getenv("DOC_URL", default=None)
+        target_url_path = os.getenv("DOC_PATH", default=None)
+        if target_url and target_url_path:
+            log.info("Using DOC_URL/PATH.")
+        else:
+            # Fall back to using root directly on dummy domain url
+            log.warning("Using dummy paths so we can at least build the docs "
+                        "to check for errors")
             target_url = "https://dummy.url.com"
             target_url_path = "/"
 
