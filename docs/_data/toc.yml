@@ -4,6 +4,10 @@
 #
 #
 
+- caption: overview
+  children:
+  - page: changelog
+
 - caption: authoring
   children:
   - page: authoring

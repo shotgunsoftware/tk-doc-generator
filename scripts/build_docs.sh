@@ -53,8 +53,11 @@ echo "---------------------------------------------------"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-TMP_FOLDER=${THIS_DIR}/../_doc_generator_tmp
-TMP_BUILD_FOLDER=${TMP_FOLDER}/markdown_src
+TK_DOC_GEN_SRC="$(readlink -m ${THIS_DIR}/..)"  # contains Gemfile, jekyll, etc
+OUR_REPO_ROOT="$(readlink -m ${SOURCE}/..)"  # user's project root folder
+
+TMP_FOLDER="${TK_DOC_GEN_SRC}/_doc_generator_tmp"
+TMP_BUILD_FOLDER="${TMP_FOLDER}/markdown_src"
 
 echo ""
 echo "Intermediate files will be written to '${TMP_FOLDER}'."
@@ -67,35 +70,32 @@ echo "Cleaning out final build location '${OUTPUT}'..."
 rm -rf ${OUTPUT}
 
 echo "Creating build location '${TMP_BUILD_FOLDER}'..."
-mkdir -p ${TMP_BUILD_FOLDER}
+mkdir -p ${TMP_BUILD_FOLDER}/_plugins
 
-echo "Copying source files into '${TMP_FOLDER}'..."
+echo "Copying source files into '${TMP_BUILD_FOLDER}'..."
 cp -r ${SOURCE}/* ${TMP_BUILD_FOLDER}
 
-echo "Copying plugins into '${TMP_FOLDER}/_plugins'..."
-mkdir -p ${TMP_BUILD_FOLDER}/_plugins
-cp -nr ${THIS_DIR}/../jekyll/_plugins/* ${TMP_BUILD_FOLDER}/_plugins
+echo "Copying plugins into '${TMP_BUILD_FOLDER}/_plugins'..."
+cp -nr ${TK_DOC_GEN_SRC}/jekyll/_plugins/* ${TMP_BUILD_FOLDER}/_plugins
 
 echo "Running Sphinx RST -> Markdown build process..."
 python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 
 echo "Running Jekyll to generate html from markdown..."
+CONFIGS="${TK_DOC_GEN_SRC}/jekyll/_config.yml"
 
 # see if an external override config file exists
-OVERRIDE_CONFIG=${THIS_DIR}/../../jekyll_config.yml
-
-if [ -e "$OVERRIDE_CONFIG" ]; then
+OVERRIDE_CONFIG=${OUR_REPO_ROOT}/jekyll_config.yml
+if [ -e "${OVERRIDE_CONFIG}" ]
+then
     echo "using override config from ${OVERRIDE_CONFIG}..."
-    BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
-    bundle exec jekyll build \
-    --baseurl "${URLPATH}" --config ${THIS_DIR}/../jekyll/_config.yml,${OVERRIDE_CONFIG} \
-    --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
-else
-    BUNDLE_GEMFILE=${THIS_DIR}/../Gemfile JEKYLL_ENV=production \
-    bundle exec jekyll build \
-    --baseurl "${URLPATH}" --config ${THIS_DIR}/../jekyll/_config.yml \
-    --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
+    CONFIGS="${CONFIGS},${OVERRIDE_CONFIG}"
 fi
+
+BUNDLE_GEMFILE=${TK_DOC_GEN_SRC}/Gemfile JEKYLL_ENV=production \
+    bundle exec jekyll build \
+    --baseurl "${URLPATH}" --config "${CONFIGS}" \
+    --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
 
 echo "------------------------------------------------------"
 echo "Build completed."
