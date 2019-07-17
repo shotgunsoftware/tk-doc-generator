@@ -13,5 +13,5 @@ ruamel.yaml==0.15.83
 # working around travis issue
 # Could not import extension sphinx.builders.linkcheck (exception: No module named ordered_dict)
 # see see https://github.com/ystia/yorc/pull/178
-# (Updated this to 1.25.3, which includes security fixes, but is compatible with requests.)
+# (Updated urllib3 from 1.23 to 1.25.3, which includes security fixes, and is compatible with requests.)
 urllib3[secure]==1.25.3
