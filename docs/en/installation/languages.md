@@ -26,5 +26,5 @@ default_lang: "en"
 
 ## Document disk layout 
 
-For documentation structure, see the [file structure](../../authoring/toc/file-structure/) documentation.
+For documentation structure, see the [file structure](../authoring/toc/file-structure.md) documentation.
 
