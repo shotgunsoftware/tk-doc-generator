@@ -7,7 +7,7 @@ lang: en
 
 # Authoring Developer Documentation
 
-Once you have [integrated](../integrating) the doc-generator with your project,
+Once you have [integrated](./installation/integrating.md) the doc-generator with your project,
 writing docs is easy. Simply use standard markdown to create your content. You 
 can use github's built-in markdown tools to preview the content and in addition,
 you have an automatic preview running for each commit inside pull requests.
