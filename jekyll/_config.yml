@@ -48,8 +48,8 @@ exclude: ["tk-doc-generator"]
 # You can add custom html before and after the content using these
 # parameters. This can be useful if you for example want to integrate
 # a search system.
-# custom_pre_content: ....
-# custom_post_content: ....
+custom_pre_content: "<h1>before content</h1>"
+custom_post_content: "<h1>after content</h1>"
 
 # Adding custom data to HEAD
 #
