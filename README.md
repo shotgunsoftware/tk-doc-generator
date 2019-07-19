@@ -26,9 +26,9 @@ FAQs and tutorials easy.
 
 Check out the documentation:
 
-- [How to set up the doc generator with your repository](https://developer.shotgunsoftware.com/tk-doc-generator/installation/integrating/).
+- [How to set up the doc generator with your repository](https://developer.shotgunsoftware.com/tk-doc-generator/53726823).
 
-- [How to author and release documentation](https://developer.shotgunsoftware.com/tk-doc-generator/authoring/).
+- [How to author and release documentation](https://developer.shotgunsoftware.com/tk-doc-generator/19bd79d8/?title=Introduction).
 
 ## Examples of documentation
 
