@@ -43,6 +43,20 @@ exclude: ["tk-doc-generator"]
 #    id: UA-123-456          # Required - replace with your tracking id
 #    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
+# Injecting custom tags before and after the content
+#
+# You can add custom html before and after the content using these
+# parameters. This can be useful if you for example want to integrate
+# a search system.
+# custom_pre_content: ....
+# custom_post_content: ....
+
+# Adding custom data to HEAD
+#
+# You can inject custom data to the head section of all pages using
+# this parameter:
+# additional_head_html: ...
+
 # Default permalinks will use the generated UID.  For pages where the UID
 # should not be used, permalink can be set in the page slug.
 permalink: /:uid/
