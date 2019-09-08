@@ -60,3 +60,8 @@ exclude: ["tk-doc-generator"]
 # Default permalinks will use the generated UID.  For pages where the UID
 # should not be used, permalink can be set in the page slug.
 permalink: /:uid/
+
+# add a google custom search box
+# (see https://developers.google.com/custom-search/docs/element)
+# enter a search engine id in order to enable this
+google_custom_search_id: null
