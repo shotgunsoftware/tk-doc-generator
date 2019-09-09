@@ -177,6 +177,6 @@ The documentation system supports integration with [Google Custom Search](https:
 ```yaml
 # add a google custom search box
 # (see https://developers.google.com/custom-search/docs/element)
-google_custom_search_id: 0156836942234623426942:2l54_vxygup
+google_custom_search_id: your_search_key_here
 ```
 
