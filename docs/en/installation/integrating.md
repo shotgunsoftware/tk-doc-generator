@@ -170,3 +170,13 @@ build using the `tk-doc-generator`:
 [![Doc Generator](https://img.shields.io/badge/Built%20With-SG%20Doc%20Generator-blue.svg)](http://github.com/shotgunsoftware/tk-doc-generator)
 ```
 
+## Configuring Search
+
+The documentation system supports integration with [Google Custom Search](https://cse.google.com). This makes it easy to integrate site specific search results. This is disabled by default - in order to enable it, set up a google custom search profile and then add its search engine id into the configuration:
+
+```yaml
+# add a google custom search box
+# (see https://developers.google.com/custom-search/docs/element)
+google_custom_search_id: your_search_key_here
+```
+
