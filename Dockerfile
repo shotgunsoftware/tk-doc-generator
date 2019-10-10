@@ -18,30 +18,30 @@ LABEL maintainer="toolkit@shotgunsoftware.com"
 RUN yum update -y && \
     yum install -y epel-release && \
     yum install -y \
-    # Generic build packages
-    autoconf \
-    automake \
-    gcc \
-    gcc-c++ \
-    git \
-    libtool \
-    make \
-    nasm \
-    perl-devel \
-    zlib-devel \
-    tar \
-    nc \
-    xz \
-    # sphinx
-    pandoc \
-    # Python libs
-    python-pip \
-    # Ruby
-    libyaml-devel \
-    openssl-devel \
-    libreadline-dev \
-    zlib-devel \
-    python-pyside \
+        # Generic build packages
+        autoconf \
+        automake \
+        gcc \
+        gcc-c++ \
+        git \
+        libtool \
+        make \
+        nasm \
+        perl-devel \
+        zlib-devel \
+        tar \
+        nc \
+        xz \
+        # sphinx
+        pandoc \
+        # Python libs
+        python-pip \
+        # Ruby
+        libyaml-devel \
+        openssl-devel \
+        libreadline-dev \
+        zlib-devel \
+        python-pyside && \
     yum clean all
 
 # Ruby
