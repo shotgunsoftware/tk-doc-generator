@@ -61,6 +61,11 @@ exclude: ["tk-doc-generator"]
 # should not be used, permalink can be set in the page slug.
 permalink: /:uid/
 
+# Jekyll should generate a build error rather than continue silently if there is
+# an error in the front matter. This will ensure that CI fails for incorrectly
+# structured front matter and that we don't silently omit pages.
+strict_front_matter: true
+
 # add a google custom search box
 # (see https://developers.google.com/custom-search/docs/element)
 # enter a search engine id in order to enable this
