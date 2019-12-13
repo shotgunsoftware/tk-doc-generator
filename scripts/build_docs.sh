@@ -97,6 +97,18 @@ else
     --source "${TMP_BUILD_FOLDER}" --destination "${OUTPUT}"
 fi
 
+if [ ! -f $OUTPUT/index.html ]; then
+    echo ""
+    echo "Output site index does not exist: ${OUTPUT}/index.html"
+    echo "Jekyll build appears to have failed!"
+    echo ""
+    exit 1
+else
+    echo ""
+    echo "Output site index exists. Jekyll build appears to have succeeded!"
+    echo ""
+fi
+
 echo "------------------------------------------------------"
 echo "Build completed."
 echo "------------------------------------------------------"
