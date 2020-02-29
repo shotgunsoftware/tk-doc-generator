@@ -61,7 +61,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
-    rake (12.3.2)
+    rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -82,7 +82,7 @@ DEPENDENCIES
   jekyll-analytics
   jekyll-feed (~> 0.6)
   jekyll-polyglot
-  jekyll-relative-links
+  jekyll-relative-links!
   just-the-docs!
 
 BUNDLED WITH
