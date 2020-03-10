@@ -66,6 +66,9 @@ COPY ./Gemfile /app
 COPY ./Gemfile.lock /app
 COPY ./requirements.txt /app
 
+# Update setuptools to the latest Python 2.7 compatible version.  This is
+# necessary for install of Pygments 2.6.1, which is a dependency of Sphinx.
+RUN pip install --upgrade setuptools==44.0.0
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
