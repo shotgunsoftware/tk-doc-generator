@@ -1,0 +1,37 @@
+# This file holds the table of contents for the site
+#
+# For documentation, see https://developer.shotgunsoftware.com/tk-doc-generator/authoring/toc/
+#
+#
+
+- caption: authoring
+  children:
+  - page: authoring
+  - page: authoring-markdown
+    children:
+    - text: markdown-cheatsheet
+      url: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+  - page: authoring-figures
+  - page: authoring-toc
+    children:
+    - page: toc-file-structure
+      children:
+      - page: toc-nesting
+  - page: authoring-landing-page
+  - page: authoring-preview
+  - page: authoring-page-urls
+
+- caption: setting-up
+  children:
+  - page: installation-integrating
+  - page: installation-languages
+
+- caption: developing
+  children:
+  - page: developing-tech-details
+
+
+
+
+
+

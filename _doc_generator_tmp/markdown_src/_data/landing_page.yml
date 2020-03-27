@@ -1,0 +1,20 @@
+# This file holds data for the site landing page.
+# 
+# For documentation, see https://developer.shotgunsoftware.com/tk-doc-generator/authoring/landing-page/
+#
+
+# main logo image
+image: ./images/landing-page/sg_doc_logo.png
+
+# main headline blurb
+content: This repository makes it easy to generate developer documentation for Shotgun Ecosystem and Toolkit related repositories.
+
+# different tiles to be displayed below headline blurb
+tiles:
+- name: integrating
+  image: ./images/landing-page/dev_icon.png
+  target: ./integrating
+
+- name: authoring
+  image: ./images/landing-page/book_icon.png
+  target: ./authoring
