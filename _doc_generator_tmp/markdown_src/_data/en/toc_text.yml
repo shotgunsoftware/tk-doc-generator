@@ -1,9 +1,0 @@
-# Translated text strings used by the table of contents
-# 
-# For documentation, see https://developer.shotgunsoftware.com/tk-doc-generator/authoring/toc/
-#
-
-authoring: Authoring docs
-markdown-cheatsheet: Markdown Format
-setting-up: Installation
-developing: Developing tk-doc-generator
