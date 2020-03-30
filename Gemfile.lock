@@ -7,8 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/shotgunsoftware/just-the-docs.git
-  revision: 632ca13a78c5ecbb9812b3ac7389a229b85b2f3a
-  branch: SG-15122_sidebar_fixes
+  revision: e0d2e9945c1ae18eda2819b03eb746a1f676d57a
   specs:
     just-the-docs (0.2.1)
       jekyll (~> 3.8.5)
