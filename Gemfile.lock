@@ -1,17 +1,18 @@
 GIT
-  remote: https://github.com/shotgunsoftware/just-the-docs.git
-  revision: 83009beea3d9f99900d6452561ecc6ac5e02296d
-  specs:
-    just-the-docs (0.2.1)
-      jekyll (~> 3.8.5)
-      rake (~> 12.3.1)
-
-GIT
   remote: https://github.com/shotgunsoftware/jekyll-relative-links.git
   revision: 1eec0a697826d6e4af57ca526469272a4ee6d07d
   specs:
     jekyll-relative-links (0.6.0)
       jekyll (~> 3.3)
+
+GIT
+  remote: https://github.com/shotgunsoftware/just-the-docs.git
+  revision: 632ca13a78c5ecbb9812b3ac7389a229b85b2f3a
+  branch: SG-15122_sidebar_fixes
+  specs:
+    just-the-docs (0.2.1)
+      jekyll (~> 3.8.5)
+      rake (~> 12.3.1)
 
 GEM
   remote: https://rubygems.org/
@@ -61,7 +62,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
-    rake (12.3.2)
+    rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -82,7 +83,7 @@ DEPENDENCIES
   jekyll-analytics
   jekyll-feed (~> 0.6)
   jekyll-polyglot
-  jekyll-relative-links
+  jekyll-relative-links!
   just-the-docs!
 
 BUNDLED WITH
