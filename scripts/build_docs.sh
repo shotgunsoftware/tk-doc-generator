@@ -77,7 +77,7 @@ mkdir -p ${TMP_BUILD_FOLDER}/_plugins
 cp -nr ${THIS_DIR}/../jekyll/_plugins/* ${TMP_BUILD_FOLDER}/_plugins
 
 echo "Running Sphinx RST -> Markdown build process..."
-python ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
+python3 ${THIS_DIR}/build_sphinx.py ${TMP_BUILD_FOLDER}
 
 echo "Running Jekyll to generate html from markdown..."
 

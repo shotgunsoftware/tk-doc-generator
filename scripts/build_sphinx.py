@@ -10,7 +10,7 @@ import uuid
 import logging
 import shutil
 import tempfile
-import commands
+import subprocess
 from ruamel.yaml import YAML
 import os
 
@@ -34,18 +34,17 @@ def add_to_pythonpath(path):
 def execute_external_command(cmd):
     """
     Executes the given command line,
-    logs output checks return code.
+    logs output and raises on failure
 
     :param str cmd: Command to execute
     :returns: The output generated
-    :raises: RuntimeError on failure
+    :raises: SubprocessError on failure
     """
     log.info("Executing command '{}'".format(cmd))
-    (exit_code, output) = commands.getstatusoutput(cmd)
+    p = subprocess.Popen(cmd)
+    stdout, stderr = p.communicate()
+    output = "{}\n{}".format(stdout, stderr)
     log.info(output)
-    log.info("Exit code: {}".format(exit_code))
-    if exit_code != 0:
-        raise RuntimeError("External process returned error.")
     return output
 
 

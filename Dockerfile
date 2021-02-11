@@ -35,6 +35,7 @@ RUN yum update -y && \
     # sphinx
     pandoc \
     # Python libs
+    python3 \
     python-pip \
     # Ruby
     libyaml-devel \
@@ -67,7 +68,8 @@ COPY ./Gemfile.lock /app
 COPY ./requirements.txt /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN python3 -m pip install -U pip
+RUN pip3 install -r requirements.txt
 
 # note: stay on bundler 1.17 to be travis compatible
 RUN gem install bundler -v 1.17.2 --no-document
