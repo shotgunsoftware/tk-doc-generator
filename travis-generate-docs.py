@@ -15,7 +15,7 @@ import boto3
 import os
 import sys
 import mimetypes
-import commands
+import subprocess
 
 # set up logging channel for this script
 log = logging.getLogger(__name__)
@@ -57,18 +57,17 @@ def upload_folder_to_s3(s3_bucket, s3_client, src, dst):
 def execute_external_command(cmd):
     """
     Executes the given command line,
-    logs output checks return code.
+    logs output and raises on failure
 
     :param str cmd: Command to execute
     :returns: The output generated
-    :raises: RuntimeError on failure
+    :raises: SubprocessError on failure
     """
     log.info("Executing command '{}'".format(cmd))
-    (exit_code, output) = commands.getstatusoutput(cmd)
+    p = subprocess.Popen(cmd)
+    stdout, stderr = p.communicate()
+    output = "{}\n{}".format(stdout, stderr)
     log.info(output)
-    log.info("Exit code: {}".format(exit_code))
-    if exit_code != 0:
-        raise RuntimeError("External process returned error.")
     return output
 
 
