@@ -64,7 +64,7 @@ def execute_external_command(cmd):
     :raises: SubprocessError on failure
     """
     log.info("Executing command '{}'".format(cmd))
-    p = subprocess.Popen(cmd)
+    p = subprocess.Popen(cmd, shell=True)
     stdout, stderr = p.communicate()
     output = "{}\n{}".format(stdout, stderr)
     log.info(output)
@@ -100,7 +100,7 @@ def main():
     Execute CI operations
     """
     # expected file and build locations
-    this_folder = os.path.dirname(__file__)
+    this_folder = os.path.abspath(os.path.dirname(__file__))
 
     # note - attempt to detect if we are running this for our own
     # ./docs folder or we are a submodule
