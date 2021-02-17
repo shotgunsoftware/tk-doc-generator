@@ -9,6 +9,7 @@ sphinx==1.8.3
 git+git://github.com/manneohrstrom/sphinx-markdown-builder@master#egg=sphinx-markdown-builder
 boto3==1.9.71
 ruamel.yaml==0.15.83
+PySide2==5.15.1
 
 # working around travis issue
 # Could not import extension sphinx.builders.linkcheck (exception: No module named ordered_dict)
