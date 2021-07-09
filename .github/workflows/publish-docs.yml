@@ -30,7 +30,7 @@ jobs:
           DOC_URL: https://developer.shotgridsoftware.com
           DOC_PATH: /tk-doc-generator
           PR_NUMBER: ${{ github.event.number }}
-        run: python ./tk-doc-generator/actions-generate-docs.py
+        run: python ./actions-generate-docs.py
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
