@@ -5,11 +5,6 @@
 # this software in either electronic or hard copy form.
 #
 
-#
-# Travis CI script to
-#
-#
-
 import logging
 import boto3
 import os
@@ -77,20 +72,20 @@ def generate_pull_request_comment(doc_url):
 
     :param doc_url: url to link to
     """
-    if "GITHUB_TOKEN" not in os.environ:
+    if "TK_GITHUB_TOKEN" not in os.environ:
         log.error("Cannot add comment to pull request with link "
-                  "to docs - no GITHUB_TOKEN env var defined.")
+                  "to docs - no TK_GITHUB_TOKEN env var defined.")
     else:
         log.info("Adding PR comment with link to generated documentation...")
         cmd = "curl -H 'Authorization: token {token}' -X POST ".format(
-            token=os.environ["GITHUB_TOKEN"]
+            token=os.environ["TK_GITHUB_TOKEN"]
         )
         cmd += "-d '{\"body\": \"[Documentation Preview](%s)\"}' " % (
             doc_url,
         )
         cmd += "'https://api.github.com/repos/{repo_slug}/issues/{pull_request}/comments'".format(  # noqa
-            repo_slug=os.environ["TRAVIS_REPO_SLUG"],
-            pull_request=os.environ["TRAVIS_PULL_REQUEST"]
+            repo_slug=os.environ["GITHUB_REPOSITORY"],
+            pull_request=os.environ["PR_NUMBER"]
         )
         execute_external_command(cmd)
 
@@ -119,12 +114,8 @@ def main():
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
 
-    # grab state from CI
-    current_branch = os.environ.get("TRAVIS_BRANCH")
-    inside_pr = os.environ.get("TRAVIS_PULL_REQUEST") != "false"
-
-    # first figure out i we are on master or in a PR.
-    if current_branch != "master" or inside_pr:
+    # first figure out if we are in a PR.
+    if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
         # we are in a PR.
         log.info("Inside a pull request.")
 
@@ -135,7 +126,7 @@ def main():
             s3_bucket = os.environ["S3_BUCKET"]
             target_url = os.environ["S3_WEB_URL"]
             target_url_path = "/tk-doc-generator/{commit}".format(
-                commit=os.environ["TRAVIS_COMMIT"]
+                commit=os.environ["GITHUB_SHA"]
             )
 
         else:
@@ -176,10 +167,8 @@ def main():
                 target_url_path[1:]
             )
 
-            if os.environ.get("TRAVIS_PULL_REQUEST") != "false":
-                # we are inside a 'PR build' rather than just a branch build
-                # and we have a PR we can access
-                generate_pull_request_comment(target_full_url)
+            # Add a comment to the PR to link to the generated docs
+            generate_pull_request_comment(target_full_url)
 
     else:
         # inside master
@@ -207,7 +196,7 @@ if __name__ == "__main__":
     ch.setFormatter(formatter)
     log.addHandler(ch)
 
-    log.info("Travis CI documentation job starting up.")
+    log.info("CI documentation job starting up.")
 
     exit_code = 1
     try:
