@@ -167,10 +167,8 @@ def main():
                 target_url_path[1:]
             )
 
-            if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
-                # we are inside a 'PR build' rather than just a branch build
-                # and we have a PR we can access
-                generate_pull_request_comment(target_full_url)
+            # Add a comment to the PR to link to the generated docs
+            generate_pull_request_comment(target_full_url)
 
     else:
         # inside master
