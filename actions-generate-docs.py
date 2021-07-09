@@ -72,13 +72,13 @@ def generate_pull_request_comment(doc_url):
 
     :param doc_url: url to link to
     """
-    if "GITHUB_TOKEN" not in os.environ:
+    if "TK_GITHUB_TOKEN" not in os.environ:
         log.error("Cannot add comment to pull request with link "
-                  "to docs - no GITHUB_TOKEN env var defined.")
+                  "to docs - no TK_GITHUB_TOKEN env var defined.")
     else:
         log.info("Adding PR comment with link to generated documentation...")
         cmd = "curl -H 'Authorization: token {token}' -X POST ".format(
-            token=os.environ["GITHUB_TOKEN"]
+            token=os.environ["TK_GITHUB_TOKEN"]
         )
         cmd += "-d '{\"body\": \"[Documentation Preview](%s)\"}' " % (
             doc_url,
@@ -167,7 +167,7 @@ def main():
                 target_url_path[1:]
             )
 
-            if os.environ.get("GITHUB_EVENT_NAME") != "pull_request":
+            if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
                 # we are inside a 'PR build' rather than just a branch build
                 # and we have a PR we can access
                 generate_pull_request_comment(target_full_url)
