@@ -6,7 +6,7 @@
 #
 
 sphinx==1.8.3
-git+git://github.com/manneohrstrom/sphinx-markdown-builder@master#egg=sphinx-markdown-builder
+git+ssh://git@github.com/manneohrstrom/sphinx-markdown-builder@master#egg=sphinx-markdown-builder
 boto3==1.9.71
 ruamel.yaml==0.15.83
 PySide2==5.15.1
