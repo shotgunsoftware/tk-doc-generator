@@ -193,7 +193,7 @@ def main():
     doc_script = os.path.join(this_folder, "scripts", "build_docs.sh")
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
-    config_path = os.path.join()
+    config_path = os.path.join(root_path, "jekyll_config.yml")
 
     # first figure out if we are in a PR.
     if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
