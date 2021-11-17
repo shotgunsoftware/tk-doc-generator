@@ -215,9 +215,9 @@ def main():
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
     config_paths = [
-        os.path.join(root_path, "jekyll_config.yml"),
-        os.path.join(root_path, "jekyll", "_config.yml"),
         os.path.join(this_folder, "jekyll", "_config.yml"),
+        os.path.join(root_path, "jekyll", "_config.yml"),
+        os.path.join(root_path, "jekyll_config.yml"),
     ]
 
     # first figure out if we are in a PR.
