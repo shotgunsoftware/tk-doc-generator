@@ -92,6 +92,23 @@ def generate_pull_request_comment(doc_url):
         execute_external_command(cmd)
 
 
+def parse_jekyll_configs(config_paths):
+    """
+    Parse jekyll config files in order of precedence from low to high, producing
+    a config dictionary containing all found key/values.
+
+    :param list config_paths: The list of jekyll config paths to check / parse
+    :returns: The resulting jekyll config dictionary.
+    """
+    output_config = {}
+    for config_path in config_paths:
+        if os.path.exists(config_path):
+            with open(config_path, 'r') as config_file:
+                config = yaml.safe_load(config_file)
+                output_config.update(config)
+    return output_config
+
+
 def copy_image_tree(source_dir, target_dir, overwrite=False):
     """
     Copy an image tree from an i18n source to the language target.
@@ -123,7 +140,7 @@ def copy_image_tree(source_dir, target_dir, overwrite=False):
             shutil.copy(source_img, destination_img)
 
 
-def cleanup_image_i18n(config_path, build_dir):
+def cleanup_image_i18n(config_paths, build_dir):
     """
     Iterates overr i18n targets found in the jekyll config, and cleans up
     duplicate / miscopied images from build.  If no i18n image is found, the
@@ -134,10 +151,13 @@ def cleanup_image_i18n(config_path, build_dir):
     :param str build_dir: The directory that the jekyll site was built to.
     """
     # determine list of i18n targets
-    with open(config_path, 'r') as config_file:
-        config = yaml.safe_load(config_file)
-    languages = config['languages']
-    default_lang = config['default_lang']
+    config = parse_jekyll_configs(config_paths)
+    try:
+        languages = config['languages']
+        default_lang = config['default_lang']
+    except KeyError:
+        log.error("Could not find `languages` / `default_lang` key in jekyll config.")
+        raise
     target_languages = [l for l in languages if l is not default_lang]
 
     # iterate over i81n target languages
@@ -193,7 +213,11 @@ def main():
     doc_script = os.path.join(this_folder, "scripts", "build_docs.sh")
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
-    config_path = os.path.join(root_path, "jekyll_config.yml")
+    config_paths = [
+        os.path.join(root_path, "jekyll_config.yml"),
+        os.path.join(root_path, "jekyll", "_config.yml"),
+        os.path.join(this_folder, "jekyll", "_config.yml"),
+    ]
 
     # first figure out if we are in a PR.
     if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
@@ -232,7 +256,7 @@ def main():
         execute_external_command(doc_command)
 
         # cleanup image i18n
-        cleanup_image_i18n(config_path, output_path)
+        cleanup_image_i18n(config_paths, output_path)
 
         if s3_bucket:
             log.info("Uploading build result to S3...")
