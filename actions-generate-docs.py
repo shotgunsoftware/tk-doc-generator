@@ -11,6 +11,8 @@ import os
 import sys
 import mimetypes
 import subprocess
+import yaml
+import shutil
 
 # set up logging channel for this script
 log = logging.getLogger(__name__)
@@ -90,6 +92,84 @@ def generate_pull_request_comment(doc_url):
         execute_external_command(cmd)
 
 
+def copy_image_tree(source_dir, target_dir, overwrite=False):
+    """
+    Copy an image tree from an i18n source to the language target.
+
+    :param str source_dir: The source for translated images
+    :param str target_dir: The directory to copy the images to
+    :param bool overwrite: Whether existing images in the target directory
+        should be overwritten.
+    """
+    log.debug("Copying image tree from {} to {}...".format(source_dir, target_dir))
+    log.debug("(existing files will {}be overwritten.)".format("" if overwrite else "not "))
+    for current_path, dirnames, filenames in os.walk(source_dir):
+        relative_dir = os.path.relpath(current_path, source_dir)
+        target = os.path.join(target_dir, relative_dir)
+        # ensure the target dir exists
+        if not os.path.exists(target):
+            os.makedirs(target)
+        for fn in filenames:
+            source_img = os.path.join(current_path, fn)
+            destination_img = os.path.join(target, fn)
+            if os.path.exists(destination_img):
+                if not overwrite:
+                    continue
+                if os.path.samefile(source_img, destination_img):
+                    continue
+                log.debug("{} already exists, removing and overwriting...".format(destination_img))
+                os.remove(destination_img)
+            log.debug("Copying {} to {}...".format(source_img, destination_img))
+            shutil.copy(source_img, destination_img)
+
+
+def cleanup_image_i18n(config_path, build_dir):
+    """
+    Iterates overr i18n targets found in the jekyll config, and cleans up
+    duplicate / miscopied images from build.  If no i18n image is found, the
+    default language image is copied in its place.
+
+    :param str config_path: The path to the jekyll config to read i18n targets
+        and default language from.
+    :param str build_dir: The directory that the jekyll site was built to.
+    """
+    # determine list of i18n targets
+    with open(config_path, 'r') as config_file:
+        config = yaml.safe_load(config_file)
+    languages = config['languages']
+    default_lang = config['default_lang']
+    target_languages = [l for l in languages if l is not default_lang]
+
+    # iterate over i81n target languages
+    for lang in target_languages:
+        lang_base = os.path.join(build_dir, lang)
+        img_src = os.path.join(lang_base, lang)
+        default_image_src = os.path.join(lang_base, default_lang)
+
+        # If the source directory for this target is missing here, log a warning.
+        if not os.path.exists(img_src):
+            log.warning("No image source dir found for {}, skipping...".format(lang))
+        else:
+            # Iterate over the images in the source directory, and copy them over
+            # any images in the path that they should exist in.
+            copy_image_tree(img_src, lang_base, overwrite=True)
+
+            # Now do the same, but with the default language, and only copy missing
+            # images.
+            if not os.path.exists(default_image_src):
+                log.warning("No default image source dir found for {}, skipping...".format(lang))
+            else:
+                copy_image_tree(default_image_src, lang_base, overwrite=False)
+
+        # remove the duplicated source image directories
+        for img_dir_lang in languages:
+            images_dir = os.path.join(lang_base, img_dir_lang)
+            if os.path.exists(images_dir):
+                # Remove duplicate image subdirectories
+                # ignore errors since leaving files here is not harmful.
+                shutil.rmtree(images_dir, ignore_errors=True)
+
+
 def main():
     """
     Execute CI operations
@@ -113,6 +193,7 @@ def main():
     doc_script = os.path.join(this_folder, "scripts", "build_docs.sh")
     output_path = os.path.join(root_path, "_build")
     source_path = os.path.join(root_path, "docs")
+    config_path = os.path.join()
 
     # first figure out if we are in a PR.
     if os.environ.get("GITHUB_EVENT_NAME") == "pull_request":
@@ -149,6 +230,9 @@ def main():
             output=output_path
         )
         execute_external_command(doc_command)
+
+        # cleanup image i18n
+        cleanup_image_i18n(config_path, output_path)
 
         if s3_bucket:
             log.info("Uploading build result to S3...")
