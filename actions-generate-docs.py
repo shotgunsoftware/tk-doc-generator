@@ -118,8 +118,8 @@ def copy_image_tree(source_dir, target_dir, overwrite=False):
     :param bool overwrite: Whether existing images in the target directory
         should be overwritten.
     """
-    log.debug("Copying image tree from {} to {}...".format(source_dir, target_dir))
-    log.debug("(existing files will {}be overwritten.)".format("" if overwrite else "not "))
+    log.info("Copying image tree from {} to {}...".format(source_dir, target_dir))
+    log.info("(existing files will {}be overwritten.)".format("" if overwrite else "not "))
     for current_path, dirnames, filenames in os.walk(source_dir):
         relative_dir = os.path.relpath(current_path, source_dir)
         target = os.path.join(target_dir, relative_dir)
@@ -134,9 +134,9 @@ def copy_image_tree(source_dir, target_dir, overwrite=False):
                     continue
                 if os.path.samefile(source_img, destination_img):
                     continue
-                log.debug("{} already exists, removing and overwriting...".format(destination_img))
+                log.info("{} already exists, removing and overwriting...".format(destination_img))
                 os.remove(destination_img)
-            log.debug("Copying {} to {}...".format(source_img, destination_img))
+            log.info("Copying {} to {}...".format(source_img, destination_img))
             shutil.copy(source_img, destination_img)
 
 
@@ -159,6 +159,7 @@ def cleanup_image_i18n(config_paths, build_dir):
         log.error("Could not find `languages` / `default_lang` key in jekyll config.")
         raise
     target_languages = [l for l in languages if l is not default_lang]
+    log.info("Default language: {}, targeting {}".format(default_lang, target_languages))
 
     # iterate over i81n target languages
     for lang in target_languages:
