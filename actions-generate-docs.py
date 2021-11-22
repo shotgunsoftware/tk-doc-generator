@@ -142,7 +142,7 @@ def copy_image_tree(source_dir, target_dir, overwrite=False):
 
 def cleanup_image_i18n(config_paths, build_dir):
     """
-    Iterates overr i18n targets found in the jekyll config, and cleans up
+    Iterates over i18n targets found in the jekyll config, and cleans up
     duplicate / miscopied images from build.  If no i18n image is found, the
     default language image is copied in its place.
 
@@ -296,6 +296,9 @@ def main():
             output=output_path
         )
         execute_external_command(doc_command)
+
+        # cleanup image i18n
+        cleanup_image_i18n(config_paths, output_path)
 
 
 if __name__ == "__main__":
