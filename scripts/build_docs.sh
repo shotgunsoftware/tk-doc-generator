@@ -44,7 +44,7 @@ esac
 done
 
 echo "---------------------------------------------------"
-echo "Shotgun Ecosystem Documentation Build Process"
+echo "ShotGrid Ecosystem Documentation Build Process"
 echo "---------------------------------------------------"
 echo "Source:     ${SOURCE}"
 echo "Output:     ${OUTPUT}"

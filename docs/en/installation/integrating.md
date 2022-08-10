@@ -68,7 +68,7 @@ If you prefer to work off an example rather than setting things up from scratch,
 
 The following environment variables should be defined in the travis `.travis.yml` file:
 
-- `DOC_URL` - The target url where released docs will go, e.g. `https://developer.shotgunsoftware.com`.
+- `DOC_URL` - The target url where released docs will go, e.g. `https://developer.shotgridsoftware.com`.
 - `DOC_PATH` - The path where the released docs will go, e.g. `/dev-docs`. 
 - `S3_BUCKET` - the name of a publicly accessible S3 bucket, in website hosting mode, e.g. `mybucket`.
 - `S3_WEB_URL` - the website url where the bucket can be accessed, e.g. `http://mybucket.s3-website.eu-west-2.amazonaws.com`.
@@ -103,7 +103,7 @@ The following travis file illustrates how to integrate:
 language: python
 
 global:
-    - DOC_URL=https://developer.shotgunsoftware.com
+    - DOC_URL=https://developer.shotgridsoftware.com
     - DOC_PATH=/tk-doc-generator
     - S3_BUCKET=my-preview-bucket
     - S3_WEB_URL=http://my-preview-bucket.s3-website.my-region.amazonaws.com

@@ -26,9 +26,9 @@ FAQs and tutorials easy.
 
 Check out the documentation:
 
-- [How to set up the doc generator with your repository](https://developer.shotgunsoftware.com/tk-doc-generator/53726823).
+- [How to set up the doc generator with your repository](https://developer.shotgridsoftware.com/tk-doc-generator/53726823).
 
-- [How to author and release documentation](https://developer.shotgunsoftware.com/tk-doc-generator/19bd79d8/?title=Introduction).
+- [How to author and release documentation](https://developer.shotgridsoftware.com/tk-doc-generator/19bd79d8/?title=Introduction).
 
 ## Examples of documentation
 
@@ -36,8 +36,8 @@ Apart from the documentation links above, a great way to understand
 a system is to look at how it is being used in practice. Below are some examples of what documentation sites generated with the generator
 looks like, along with their source markdown:
 
-- This repository's documentation: [[docs](https://developer.shotgunsoftware.com/tk-doc-generator)] / [[source](https://github.com/shotgunsoftware/tk-doc-generator/tree/master/docs)].
+- This repository's documentation: [[docs](https://developer.shotgridsoftware.com/tk-doc-generator)] / [[source](https://github.com/shotgunsoftware/tk-doc-generator/tree/master/docs)].
 
-- The Shotgun developer site: [[docs](https://developer.shotgunsoftware.com)] / [[source](https://github.com/shotgunsoftware/shotgunsoftware.github.io/tree/master/docs)].
+- The ShotGrid developer site: [[docs](https://developer.shotgridsoftware.com)] / [[source](https://github.com/shotgunsoftware/shotgunsoftware.github.io/tree/master/docs)].
 
 
