@@ -10,7 +10,7 @@
 
 # Site settings
 title: SG Developer
-description: Resources for Shotgun Developers.
+description: Resources for ShotGrid Developers.
 
 # Build settings
 markdown: kramdown

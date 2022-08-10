@@ -3,6 +3,6 @@
 # For documentation, see https://developer.shotgridsoftware.com/tk-doc-generator/authoring/landing-page/
 #
 
-title: This repository makes it easy to generate developer documentation for Shotgun Ecosystem and Toolkit related repositories.
+title: This repository makes it easy to generate developer documentation for ShotGrid Ecosystem and Toolkit related repositories.
 integrating: How to integrate the doc generator with your repository.
 authoring: Authoring documentation with the doc generator system.

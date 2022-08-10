@@ -7,7 +7,7 @@
 image: ./images/landing-page/sg_doc_logo.png
 
 # main headline blurb
-content: This repository makes it easy to generate developer documentation for Shotgun Ecosystem and Toolkit related repositories.
+content: This repository makes it easy to generate developer documentation for ShotGrid Ecosystem and Toolkit related repositories.
 
 # different tiles to be displayed below headline blurb
 tiles:

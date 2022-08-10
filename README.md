@@ -2,15 +2,15 @@
 [![Build Status](https://secure.travis-ci.org/shotgunsoftware/tk-doc-generator.svg?branch=master)](http://travis-ci.org/shotgunsoftware/tk-doc-generator)
 [![Linting](https://img.shields.io/badge/PEP8%20by-Hound%20CI-a873d1.svg)](https://houndci.com)
 
-# Shotgun/Toolkit Documentation Generator
+# ShotGrid Toolkit Documentation Generator
 
 This repository makes it easy to generate documentation for 
-Shotgun and Toolkit related repositories.
+ShotGrid and Toolkit related repositories.
 
 ## When do I need this?
 
 If you are releasing Toolkit apps, engines, frameworks or
-any other Shotgun related integrations, tools or APIs, 
+any other ShotGrid related integrations, tools or APIs, 
 this repository can accelerate your documentation process.
 
 ## What does it do?

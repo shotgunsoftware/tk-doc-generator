@@ -8,12 +8,12 @@ lang: en
 # Integrating the Doc Generator with your repository
 
 This repository makes it easy to generate documentation for 
-Shotgun Ecosystem and Toolkit related repositories.
+ShotGrid Ecosystem and Toolkit related repositories.
 
 ## What does the repo do?
 
 Integrate this repository as a submodule in a Toolkit App or other 
-Shotgun App that benefits and it will:
+ShotGrid App that benefits and it will:
  
 - Convert any markdown in the `/docs` folder into multi-language html.
 - Provide a consistent look and feel to build output.
@@ -62,7 +62,7 @@ travis CI or adding it to an existing CI is easy.
 
 ### Using an example
 
-If you prefer to work off an example rather than setting things up from scratch, we recommend making a clone of the [Shotgun developer site](https://github.com/shotgunsoftware/shotgunsoftware.github.io) as a starting point.
+If you prefer to work off an example rather than setting things up from scratch, we recommend making a clone of the [ShotGrid developer site](https://github.com/shotgunsoftware/shotgunsoftware.github.io) as a starting point.
 
 ### Environment variables
 
