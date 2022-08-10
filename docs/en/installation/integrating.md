@@ -8,12 +8,12 @@ lang: en
 # Integrating the Doc Generator with your repository
 
 This repository makes it easy to generate documentation for 
-Shotgun Ecosystem and Toolkit related repositories.
+ShotGrid Ecosystem and Toolkit related repositories.
 
 ## What does the repo do?
 
 Integrate this repository as a submodule in a Toolkit App or other 
-Shotgun App that benefits and it will:
+ShotGrid App that benefits and it will:
  
 - Convert any markdown in the `/docs` folder into multi-language html.
 - Provide a consistent look and feel to build output.
@@ -62,13 +62,13 @@ travis CI or adding it to an existing CI is easy.
 
 ### Using an example
 
-If you prefer to work off an example rather than setting things up from scratch, we recommend making a clone of the [Shotgun developer site](https://github.com/shotgunsoftware/shotgunsoftware.github.io) as a starting point.
+If you prefer to work off an example rather than setting things up from scratch, we recommend making a clone of the [ShotGrid developer site](https://github.com/shotgunsoftware/shotgunsoftware.github.io) as a starting point.
 
 ### Environment variables
 
 The following environment variables should be defined in the travis `.travis.yml` file:
 
-- `DOC_URL` - The target url where released docs will go, e.g. `https://developer.shotgunsoftware.com`.
+- `DOC_URL` - The target url where released docs will go, e.g. `https://developer.shotgridsoftware.com`.
 - `DOC_PATH` - The path where the released docs will go, e.g. `/dev-docs`. 
 - `S3_BUCKET` - the name of a publicly accessible S3 bucket, in website hosting mode, e.g. `mybucket`.
 - `S3_WEB_URL` - the website url where the bucket can be accessed, e.g. `http://mybucket.s3-website.eu-west-2.amazonaws.com`.
@@ -103,7 +103,7 @@ The following travis file illustrates how to integrate:
 language: python
 
 global:
-    - DOC_URL=https://developer.shotgunsoftware.com
+    - DOC_URL=https://developer.shotgridsoftware.com
     - DOC_PATH=/tk-doc-generator
     - S3_BUCKET=my-preview-bucket
     - S3_WEB_URL=http://my-preview-bucket.s3-website.my-region.amazonaws.com
