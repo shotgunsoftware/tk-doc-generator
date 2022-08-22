@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/shotgunsoftware/just-the-docs.git
-  revision: 11044817813c3860d88caa3ea34866bf3960eef7
+  revision: c481f9844a90cc2fca8f567a2f3cedc2d0583637
   specs:
     just-the-docs (0.2.1)
       jekyll (~> 3.8.5)
