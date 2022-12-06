@@ -16,4 +16,4 @@ pyyaml==6.0
 # Could not import extension sphinx.builders.linkcheck (exception: No module named ordered_dict)
 # see see https://github.com/ystia/yorc/pull/178
 # (Updated urllib3 from 1.23 to 1.25.3, which includes security fixes, and is compatible with requests.)
-urllib3[secure]==1.25.3
+urllib3[secure]==1.26.13
