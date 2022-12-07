@@ -7,8 +7,8 @@
 
 sphinx==1.8.3
 git+https://github.com/manneohrstrom/sphinx-markdown-builder@master#egg=sphinx-markdown-builder
-boto3==1.9.71
-ruamel.yaml==0.15.83
+boto3==1.26.24
+ruamel.yaml==0.17.21
 PySide2==5.15.2.1
 pyyaml==6.0
 
@@ -16,4 +16,4 @@ pyyaml==6.0
 # Could not import extension sphinx.builders.linkcheck (exception: No module named ordered_dict)
 # see see https://github.com/ystia/yorc/pull/178
 # (Updated urllib3 from 1.23 to 1.25.3, which includes security fixes, and is compatible with requests.)
-urllib3[secure]==1.25.3
+urllib3[secure]==1.26.13
