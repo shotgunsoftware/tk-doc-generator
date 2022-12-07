@@ -263,10 +263,8 @@ def main():
             log.info("Uploading build result to S3...")
             s3_client = boto3.client(
                 "s3",
-                # aws_access_key_id=os.environ["AWS_S3_ACCESS_KEY"],
-                # aws_secret_access_key=os.environ["AWS_S3_ACCESS_TOKEN"]
-                aws_access_key_id=os.environ["AWS_S3_ACCESS_TOKEN"],
-                aws_secret_access_key=os.environ["AWS_S3_ACCESS_KEY"]
+                aws_access_key_id=os.environ["AWS_S3_ACCESS_KEY"],
+                aws_secret_access_key=os.environ["AWS_S3_ACCESS_TOKEN"]
             )
 
             # note: skip the first slash when uploading to S3
