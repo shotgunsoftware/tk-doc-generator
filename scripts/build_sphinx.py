@@ -43,6 +43,11 @@ def execute_external_command(cmd):
     log.info("Executing command '{}'".format(cmd))
     p = subprocess.Popen(cmd)
     stdout, stderr = p.communicate()
+    if p.returncode != 0:
+        err_msg = f"Failed to execute external command: {cmd}"
+        log.error(err_msg)
+        raise subprocess.SubprocessError(err_msg)
+
     output = "{}\n{}".format(stdout, stderr)
     log.info(output)
     return output
