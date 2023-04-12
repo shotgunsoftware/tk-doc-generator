@@ -65,8 +65,12 @@ module Jekyll
                         # say shifting the window on the hash, since existing
                         # URIs can't change when a new page is added that
                         # collides.
+                        p "[PermalinkRewriter#generate] DEBUG ITEM #{item.data}"
+                        p "[PermalinkRewriter#generate] DEBUG PAGENAME #{pagename}"
+                        p "[PermalinkRewriter#generate] DEBUG UID #{uid}"
+                        p "[PermalinkRewriter#generate] DEBUG CONSUMED HASHES #{consumed_hashes}"
                         if consumed_hashes.include? uid
-                            raise PageUIDCollisionException.new
+                            raise PageUIDCollisionException.new "PAGENAME: #{pagename}"
                         end
                         consumed_hashes << uid
                         # Copy the site config permalink to use on this page,
