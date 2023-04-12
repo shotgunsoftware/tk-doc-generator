@@ -10,9 +10,12 @@
 # (in a very unlikely case) when two hashes generator for different pagenames
 # are the same.
 class PageUIDCollisionException < StandardError
-  def initialize(msg="Page UID hashes collided.  This can be caused by "\
+  def initialize(item_data)
+    msg = "Page UID hashes collided.  This can be caused by "\
     "duplicate pagenames, or (very very rarely) by two pagenames hashing "\
-    "to the same value.")
+    "to the same value. "\
+    "PAGENAME: #{item_data['pagename']} already exists."\
+    "Offending ITEM: #{item_data}"
     super(msg)
   end
 end
@@ -66,7 +69,7 @@ module Jekyll
                         # URIs can't change when a new page is added that
                         # collides.
                         if consumed_hashes.include? uid
-                            raise PageUIDCollisionException.new
+                            raise PageUIDCollisionException.new item.data
                         end
                         consumed_hashes << uid
                         # Copy the site config permalink to use on this page,
